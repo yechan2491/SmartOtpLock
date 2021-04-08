@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cookandroid.smartotplock">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:name=".KakaoApplication">
+
+        <activity android:name=".intro01">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".loading"/>
+        <activity android:name=".intro02"/>
+        <activity android:name=".sign_up"/>
+        <activity android:name=".create_id1"/>
+        <activity android:name=".service_terms"/>
+        <activity android:name=".terms1"/>
+        <activity android:name=".terms2"/>
+        <activity android:name=".terms3"/>
+        <activity android:name=".terms4"/>
+        <activity android:name=".terms5"/>
+        <activity android:name=".create_id2"/>
+        <activity android:name=".create_id3"/>
+        <activity android:name=".create_id3_blockchain"/>
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaocba561fd2a722f6807a9692eb3d6f73a" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
