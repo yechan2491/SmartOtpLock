@@ -53,7 +53,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
                         count++;
                     } else if(count==5) {
                         Toast.makeText(CheckPasswordActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), setting.class);
+                        Intent intent = new Intent(getApplicationContext(), sign_up.class);
                         startActivity(intent);
                         finish();
                     }

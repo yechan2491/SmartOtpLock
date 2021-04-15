@@ -70,7 +70,7 @@ public class PINCheckActivity extends AppCompatActivity {
                             j=0;
 
                             if (pincheck == pin2[0] + pin2[1] + pin2[2] + pin2[3]) {    // 처음 설정한 pin이 저장된 pincheck와 입력한 4자리 수가 같을 경우
-                                Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {    // pin을 잘못 입력한 경우

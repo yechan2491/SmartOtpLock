@@ -57,7 +57,7 @@ public class PINCreateActivity extends AppCompatActivity {
                         count=0;
                         j=0;
 
-                        Toast.makeText(getApplicationContext(), "PIN : " + pin[0]+pin[1]+pin[2]+pin[3], Toast.LENGTH_LONG).show();
+                        // Toast.makeText(getApplicationContext(), "PIN : " + pin[0]+pin[1]+pin[2]+pin[3], Toast.LENGTH_LONG).show();
 
                         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
                         SharedPreferences.Editor editor = preferences.edit();
