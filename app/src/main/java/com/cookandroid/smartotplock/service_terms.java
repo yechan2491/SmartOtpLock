@@ -5,14 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -54,7 +52,7 @@ public class service_terms extends AppCompatActivity {
             check[i]=(CheckBox)findViewById(check_id[i]);
         }
 
-        textView2=(TextView) findViewById(R.id.textView2);  //텍스트뷰 특정 문자열 색상을 바꾸기 위한 컴포넌트 매칭칭
+        textView2=(TextView) findViewById(R.id.loginBtn);  //텍스트뷰 특정 문자열 색상을 바꾸기 위한 컴포넌트 매칭칭
         textView3=(TextView) findViewById(R.id.textView3);
         textView4=(TextView) findViewById(R.id.textView4);
         textView5=(TextView) findViewById(R.id.textView5);

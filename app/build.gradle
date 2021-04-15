@@ -45,4 +45,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    compile 'com.andrognito.patternlockview:patternlockview:1.0.0' // 패턴라이브러리
+
+
 }

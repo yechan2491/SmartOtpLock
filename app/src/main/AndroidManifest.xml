@@ -33,6 +33,11 @@
         <activity android:name=".create_id2"/>
         <activity android:name=".create_id3"/>
         <activity android:name=".create_id3_blockchain"/>
+        <activity android:name=".setting"/>
+        <activity android:name=".CreatePasswordActivity"/>
+        <activity android:name=".CheckPasswordActivity"/>
+        <activity android:name=".ChangePasswordActivity"/>
+        <activity android:name=".ProgramActivity"/>
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
