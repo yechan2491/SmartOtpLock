@@ -38,6 +38,10 @@
         <activity android:name=".CheckPasswordActivity"/>
         <activity android:name=".ChangePasswordActivity"/>
         <activity android:name=".ProgramActivity"/>
+        <activity android:name=".PINCreateActivity"/>
+        <activity android:name=".PINCheckActivity"/>
+        <activity android:name=".NextActivity"/>
+
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

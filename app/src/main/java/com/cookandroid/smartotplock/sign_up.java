@@ -74,10 +74,18 @@ public class sign_up extends AppCompatActivity {
             }
         });
 
+//        loginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent =new Intent(getApplicationContext(), setting.class);
+//                startActivity(intent);
+//            }
+//        });
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), setting.class);
+                Intent intent =new Intent(getApplicationContext(), PINCreateActivity.class);
                 startActivity(intent);
             }
         });
