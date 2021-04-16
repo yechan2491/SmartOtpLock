@@ -58,7 +58,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
-        android:background="@drawable/solid_button"
+        android:background="@drawable/solid_button_gray"
         android:fontFamily="@font/noto_sans_cjkkr_medium"
         android:text="동의하고 계속하기"
         android:textSize="14dp"

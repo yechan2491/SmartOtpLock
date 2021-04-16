@@ -8,7 +8,7 @@
     android:background="@color/white">
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/idText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/passText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -37,9 +37,9 @@
         android:textSize="16dp"
         android:drawableRight="@drawable/x_size_edit"
         android:theme="@style/EditTheme"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintEnd_toEndOf="@+id/idText"
+        app:layout_constraintStart_toStartOf="@+id/idText"
+        app:layout_constraintTop_toBottomOf="@+id/idText" />
 
     <TextView
         android:id="@+id/textView"
@@ -51,7 +51,7 @@
         android:text="계정 만들기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintStart_toStartOf="@+id/idText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -98,7 +98,7 @@
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/passText" />
 
     <Button
         android:id="@+id/nextBtn"
@@ -112,12 +112,12 @@
         android:text="다음"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+        app:layout_constraintEnd_toEndOf="@+id/passText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/warningText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -125,11 +125,11 @@
         android:text="테스트"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintStart_toStartOf="@+id/idText"
+        app:layout_constraintTop_toBottomOf="@+id/idText" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/warningText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -137,7 +137,7 @@
         android:text="테스트"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintStart_toStartOf="@+id/passText"
+        app:layout_constraintTop_toBottomOf="@+id/passText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
