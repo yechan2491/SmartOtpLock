@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <ImageView
+        android:id="@+id/LogoImage"
+        android:layout_width="380px"
+        android:layout_height="92px"
+        android:layout_marginTop="170px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="399px"
@@ -16,13 +26,13 @@
         android:text="PIN 번호 4자리를 입력해주세요."
         android:textColor="#191919"
         android:textSize="48px"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toTopOf="@+id/text2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="518px"
@@ -35,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/img1"
         android:layout_width="48px"
         android:layout_height="48px"
         android:layout_marginStart="390px"
@@ -45,27 +55,27 @@
         app:srcCompat="@drawable/graycircle" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/img2"
         android:layout_width="48px"
         android:layout_height="48px"
         android:layout_marginStart="36px"
         android:layout_marginTop="682px"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/img1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/graycircle" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/img3"
         android:layout_width="48px"
         android:layout_height="48px"
         android:layout_marginStart="36px"
         android:layout_marginTop="682px"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/img2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/graycircle" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/img4"
         android:layout_width="48px"
         android:layout_height="48px"
         android:layout_marginTop="682px"
@@ -75,7 +85,7 @@
         app:srcCompat="@drawable/graycircle" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="932px"
@@ -88,7 +98,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/blueimg"
         android:layout_width="1081px"
         android:layout_height="361px"
         android:layout_marginTop="1391px"
@@ -97,7 +107,7 @@
         app:srcCompat="@drawable/bluebox" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="78px"
@@ -110,7 +120,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/text5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="431px"
@@ -123,7 +133,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/text6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="626px"

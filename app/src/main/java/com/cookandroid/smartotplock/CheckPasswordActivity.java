@@ -43,7 +43,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
             @Override
             public void onComplete(List<PatternLockView.Dot> pattern) {
                 if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))) {
-                    Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
