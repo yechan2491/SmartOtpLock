@@ -48,11 +48,25 @@ public class create_id1 extends AppCompatActivity { // commit first test
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    if(!isContainsSymbol(idText.getText().toString())){
+                    if(!isContainsSymbol(idText.getText().toString())){  //특수 문자가 아닐때
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
                         }
                     }
+                }
+                if(b){
+                    if(!isContainsSymbol(idText.getText().toString())){  //특수 문자가 아닐때
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+                        }
+                    }
+                    if(isContainsSymbol(idText.getText().toString())){  //특수 문자가 일때
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+                        }
+                    }
+
+
                 }
             }
         });
