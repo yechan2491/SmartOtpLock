@@ -9,126 +9,147 @@
 
     <ImageView
         android:id="@+id/LogoImage"
-        android:layout_width="380px"
-        android:layout_height="92px"
-        android:layout_marginTop="170px"
+        android:layout_width="400px"
+        android:layout_height="100px"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="399px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
         android:text="PIN 번호 4자리를 입력해주세요."
         android:textColor="#191919"
         android:textSize="48px"
-        app:layout_constraintBottom_toTopOf="@+id/text2"
+        app:layout_constraintBottom_toTopOf="@+id/img3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.26"
+        app:layout_constraintTop_toBottomOf="@+id/LogoImage" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="518px"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
         android:text="연속 3번 틀릴 시 본인인증이 필요합니다."
         android:textColor="#707070"
         android:textSize="36px"
+        app:layout_constraintBottom_toTopOf="@+id/img3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     <ImageView
         android:id="@+id/img1"
         android:layout_width="48px"
         android:layout_height="48px"
-        android:layout_marginStart="390px"
-        android:layout_marginTop="682px"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@drawable/graycircle" />
 
     <ImageView
         android:id="@+id/img2"
         android:layout_width="48px"
         android:layout_height="48px"
-        android:layout_marginStart="36px"
-        android:layout_marginTop="682px"
-        app:layout_constraintStart_toEndOf="@+id/img1"
+        android:layout_marginLeft="36px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img3"
+        app:layout_constraintStart_toEndOf="@id/img1"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@drawable/graycircle" />
 
     <ImageView
         android:id="@+id/img3"
         android:layout_width="48px"
         android:layout_height="48px"
-        android:layout_marginStart="36px"
-        android:layout_marginTop="682px"
-        app:layout_constraintStart_toEndOf="@+id/img2"
+        android:layout_marginLeft="36px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img4"
+        app:layout_constraintStart_toEndOf="@id/img2"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@drawable/graycircle" />
 
     <ImageView
         android:id="@+id/img4"
         android:layout_width="48px"
         android:layout_height="48px"
-        android:layout_marginTop="682px"
-        android:layout_marginEnd="390px"
+        android:layout_marginLeft="36px"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img3"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@drawable/graycircle" />
 
     <TextView
         android:id="@+id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="932px"
         android:fontFamily="@font/noto_sans_cjkkr_light"
         android:text="PIN 번호를 잊으셨나요?"
         android:textColor="#767676"
         android:textSize="36px"
+        app:layout_constraintBottom_toTopOf="@+id/blueimg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintTop_toBottomOf="@+id/img2" />
 
     <ImageView
         android:id="@+id/blueimg"
-        android:layout_width="1081px"
-        android:layout_height="361px"
-        android:layout_marginTop="1391px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        app:layout_constraintHeight_percent="0.19"
         app:srcCompat="@drawable/bluebox" />
 
     <TextView
         android:id="@+id/text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="78px"
-        android:layout_marginTop="1427px"
         android:fontFamily="@font/noto_sans_cjkkr_medium"
         android:text="다른 인증 방식 선택"
         android:textColor="#FFFFFF"
         android:textSize="36px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/blueimg"/>
 
     <TextView
         android:id="@+id/text5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="431px"
-        android:layout_marginTop="1545px"
         android:fontFamily="@font/noto_sans_cjkkr_light"
         android:text="패턴"
         android:textColor="#FFFFFF"
         android:textSize="36px"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -136,12 +157,14 @@
         android:id="@+id/text6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="626px"
-        android:layout_marginTop="1545px"
         android:fontFamily="@font/noto_sans_cjkkr_light"
         android:text="지문"
         android:textColor="#FFFFFF"
         android:textSize="36px"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
