@@ -25,45 +25,92 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
-        android:text="새로운 패턴을 그려주세요"
+        android:text="PIN 번호 4자리를 입력해주세요."
         android:textColor="#191919"
         android:textSize="48px"
-        app:layout_constraintBottom_toTopOf="@+id/pattern_lock_view"
+        app:layout_constraintBottom_toTopOf="@+id/img3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoImage"
-        app:layout_constraintVertical_bias="0.4" />
-
-    <com.andrognito.patternlockview.PatternLockView
-        android:id="@+id/pattern_lock_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:correctStateColor="#3776F3"
-        app:dotNormalSize="48px"
-        app:dotSelectedSize="50px"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintWidth_percent="0.6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        app:normalStateColor="#707070"
-        app:wrongStateColor="#FF3129" />
+        app:layout_constraintVertical_bias="0.26"
+        app:layout_constraintTop_toBottomOf="@+id/LogoImage" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_cjkkr_bold"
+        android:text="연속 3번 틀릴 시 본인인증이 필요합니다."
+        android:textColor="#707070"
+        android:textSize="36px"
+        app:layout_constraintBottom_toTopOf="@+id/img3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/graycircle" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:layout_marginLeft="36px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img3"
+        app:layout_constraintStart_toEndOf="@id/img1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/graycircle" />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:layout_marginLeft="36px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img4"
+        app:layout_constraintStart_toEndOf="@id/img2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/graycircle" />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:layout_marginLeft="36px"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/graycircle" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sans_cjkkr_light"
-        android:text="패턴을 잊으셨나요?"
+        android:text="PIN 번호를 잊으셨나요?"
         android:textColor="#767676"
         android:textSize="36px"
         app:layout_constraintBottom_toTopOf="@+id/blueimg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pattern_lock_view"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintTop_toBottomOf="@+id/img2" />
 
     <ImageView
         android:id="@+id/blueimg"
@@ -96,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sans_cjkkr_light"
-        android:text="PIN"
+        android:text="패턴"
         android:textColor="#FFFFFF"
         android:textSize="36px"
         app:layout_constraintHorizontal_bias="0.44"
