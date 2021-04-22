@@ -81,11 +81,13 @@ public class create_id1 extends AppCompatActivity { // commit first test
                 if(isContainsSymbol(idText.getText().toString())){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+                        warningText1.setVisibility(View.VISIBLE);
                     }
                 }
                 else{
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+                        warningText1.setVisibility(View.INVISIBLE);
                     }
                 }
             }
