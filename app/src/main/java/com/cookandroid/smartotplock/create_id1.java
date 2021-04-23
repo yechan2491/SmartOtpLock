@@ -35,8 +35,8 @@ public class create_id1 extends AppCompatActivity { // commit first test
         backBtn=(ImageButton) findViewById(R.id.backBtn);
         nextBtn=(Button)findViewById(R.id.nextBtn);
 
-        idText=(EditText)findViewById(R.id.nameText);
-        passText=(EditText)findViewById(R.id.emailText);
+        idText=(EditText)findViewById(R.id.phoneText);
+        passText=(EditText)findViewById(R.id.certificationText);
         passCheckText=(EditText)findViewById(R.id.passCheckText);
 
         warningText1=(TextView)findViewById(R.id.warningText1);
@@ -265,6 +265,23 @@ public class create_id1 extends AppCompatActivity { // commit first test
         passArray=input;
         array = input.toCharArray();
         Boolean state[]=new Boolean[3];
+
+        ////
+        if(!passCheckText.getText().toString().equals(passArray)){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+                warningText3.setVisibility(View.VISIBLE);
+            }
+        }
+        else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+                warningText3.setVisibility(View.INVISIBLE);
+            }
+        }
+        ///
+
+
         for(int i=0; i<3; i++)state[i]=false;
         for (int i = 0; i < array.length; i++) {
             c = array[i];

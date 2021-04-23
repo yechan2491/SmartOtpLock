@@ -37,8 +37,8 @@ public class create_id2 extends AppCompatActivity {
         });
 
 
-        emailText=(EditText)findViewById(R.id.emailText);
-        nameText=(EditText)findViewById(R.id.nameText);
+        emailText=(EditText)findViewById(R.id.certificationText);
+        nameText=(EditText)findViewById(R.id.phoneText);
         warningText1=(TextView)findViewById(R.id.warningText1);
         warningText2=(TextView)findViewById(R.id.warningText2);
 

@@ -9,7 +9,7 @@
     android:theme="@style/Theme.AppCompat.Light">
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/phoneText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -30,7 +30,7 @@
 
 
     <com.cookandroid.smartotplock.EyesEditText
-        android:id="@+id/emailText"
+        android:id="@+id/certificationText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -40,9 +40,9 @@
         android:textSize="16dp"
         android:inputType="textPassword"
         android:theme="@style/EditTheme"
-        app:layout_constraintEnd_toEndOf="@+id/nameText"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        app:layout_constraintEnd_toEndOf="@+id/phoneText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
         android:maxLength="35"
         android:maxLines="1"/>
 
@@ -57,9 +57,9 @@
         android:textSize="16dp"
         android:inputType="textPassword"
         android:theme="@style/EditTheme"
-        app:layout_constraintEnd_toEndOf="@+id/emailText"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText"
         android:maxLength="35"
         android:maxLines="1"/>
 
@@ -73,7 +73,7 @@
         android:text="계정 만들기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -135,7 +135,7 @@
         android:textSize="14dp"
         android:textStyle="bold"
         android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="@+id/emailText"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -147,8 +147,8 @@
         android:text="영문 또는 영문과 숫자 조합하여 6~20자"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
         android:visibility="invisible"/>
 
     <TextView
@@ -160,8 +160,8 @@
         android:text="문자, 숫자, 기호를 모두 포함하여, 10자 이상으로 설정해 주세요.\n기호: !,@,#,$,%,^,*"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText"
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText"
         android:visibility="invisible"/>
 
     <TextView

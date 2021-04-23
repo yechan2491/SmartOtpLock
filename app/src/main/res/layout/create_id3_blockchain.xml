@@ -9,7 +9,7 @@
     android:theme="@style/Theme.AppCompat.Light">
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/phoneText"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -23,7 +23,10 @@
         android:theme="@style/EditTheme"
         app:layout_constraintBottom_toBottomOf="@+id/nextBtn2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:inputType="number"
+        android:maxLength="15"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/textView"
@@ -35,7 +38,7 @@
         android:text="지갑 생성하기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -79,8 +82,8 @@
         android:textColor="#767676"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="@+id/nextBtn2"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText" />
 
     <Button
         android:id="@+id/nextBtn"
@@ -91,6 +94,7 @@
         android:layout_marginLeft="275dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/solid_button"
+        android:textColor="#ffffff"
         android:text="다음"
         android:textSize="14dp"
         android:textStyle="bold"
@@ -109,11 +113,12 @@
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
         android:background="@drawable/solid_button"
+        android:textColor="#ffffff"
         android:text="전송"
         android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nameText"
+        app:layout_constraintStart_toEndOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -122,10 +127,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="테스트"
+        android:text="올바른 형식의 휴대전화 번호를 입력하세요."
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

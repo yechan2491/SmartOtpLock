@@ -9,7 +9,7 @@
     android:theme="@style/Theme.AppCompat.Light">
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/phoneText"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -19,11 +19,14 @@
         android:textSize="16dp"
 
         android:theme="@style/EditTheme"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:inputType="number"
+        android:maxLines="1"
+        android:maxLength="13" />
 
     <EditText
-        android:id="@+id/emailText"
+        android:id="@+id/certificationText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -39,7 +42,10 @@
         android:theme="@style/EditTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
+        android:inputType="number"
+        android:maxLines="1"
+        android:maxLength="6"/>
 
     <TextView
         android:id="@+id/textView"
@@ -51,7 +57,7 @@
         android:text="본인 인증하기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -98,7 +104,7 @@
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintTop_toBottomOf="@+id/certificationText" />
 
     <Button
         android:id="@+id/nextBtn"
@@ -112,7 +118,7 @@
         android:text="다음"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emailText"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -129,8 +135,8 @@
         android:text="전송"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emailText"
-        app:layout_constraintStart_toEndOf="@+id/nameText"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
+        app:layout_constraintStart_toEndOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -139,11 +145,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="테스트"
+        android:text="올바른 형식의 휴대전화 번호를 입력하세요."
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/warningText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="인증번호를 잘못 입력하셨습니다. 다시입력해주세요."
+        android:textColor="#ff3120"
+        android:textSize="8dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText" />
 
     <TextView
         android:id="@+id/warningText2"
@@ -154,7 +173,7 @@
         android:text="남은시간:"
         android:textColor="#191919"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

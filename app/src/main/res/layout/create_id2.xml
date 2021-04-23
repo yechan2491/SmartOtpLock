@@ -9,7 +9,7 @@
     android:theme="@style/Theme.AppCompat.Light">
 
     <com.cookandroid.smartotplock.ClearEditText
-        android:id="@+id/nameText"
+        android:id="@+id/phoneText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -28,7 +28,7 @@
         android:maxLines="1"/>
 
     <com.cookandroid.smartotplock.ClearEditText
-        android:id="@+id/emailText"
+        android:id="@+id/certificationText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -38,9 +38,9 @@
         android:textColorHint="#999999"
         android:textSize="16dp"
         android:theme="@style/EditTheme"
-        app:layout_constraintEnd_toEndOf="@+id/nameText"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        app:layout_constraintEnd_toEndOf="@+id/phoneText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
         android:maxLength="35"
         android:maxLines="1"/>
 
@@ -54,7 +54,7 @@
         android:text="계정 만들기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -101,7 +101,7 @@
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintTop_toBottomOf="@+id/certificationText" />
 
     <Button
         android:id="@+id/nextBtn"
@@ -115,7 +115,7 @@
         android:text="다음"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emailText"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -128,8 +128,8 @@
         android:text="이름은 특수문자를 제외한 20자 이내를 작성해주세요."
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
         android:visibility="invisible"/>
 
     <TextView
@@ -141,8 +141,8 @@
         android:text="올바른 이메일 형식이 아닙니다."
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText"
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText"
         android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
