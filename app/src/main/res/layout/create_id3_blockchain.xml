@@ -9,7 +9,7 @@
     android:theme="@style/Theme.AppCompat.Light">
 
     <EditText
-        android:id="@+id/idText"
+        android:id="@+id/nameText"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -35,7 +35,7 @@
         android:text="지갑 생성하기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/idText"
+        app:layout_constraintStart_toStartOf="@+id/nameText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -79,8 +79,8 @@
         android:textColor="#767676"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="@+id/nextBtn2"
-        app:layout_constraintStart_toStartOf="@+id/idText"
-        app:layout_constraintTop_toBottomOf="@+id/idText" />
+        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
     <Button
         android:id="@+id/nextBtn"
@@ -113,7 +113,7 @@
         android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/idText"
+        app:layout_constraintStart_toEndOf="@+id/nameText"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -125,7 +125,7 @@
         android:text="테스트"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/idText"
-        app:layout_constraintTop_toBottomOf="@+id/idText" />
+        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
