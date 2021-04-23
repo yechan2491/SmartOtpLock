@@ -3,6 +3,8 @@ package com.cookandroid.smartotplock;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -17,11 +19,15 @@ import java.util.List;
 public class CreatePasswordActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
+    TextView textPin, textFingerPrint;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_password);
+
+        textPin = (TextView) findViewById(R.id.text5);
+        textFingerPrint = (TextView) findViewById(R.id.text6);
 
         mPatternLockView = (PatternLockView) findViewById(R.id.pattern_lock_view);
         mPatternLockView.addPatternLockListener(new PatternLockViewListener() {
@@ -55,6 +61,22 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
             @Override
             public void onCleared() {
+
+            }
+        });
+
+        textPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PINCheckActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        textFingerPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });

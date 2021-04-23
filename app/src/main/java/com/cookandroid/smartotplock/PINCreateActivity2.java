@@ -55,8 +55,8 @@ public class PINCreateActivity2 extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     // EditText 없을 때 키보드 열기
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput(0,InputMethodManager.HIDE_NOT_ALWAYS);
+                    //InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    //imm.toggleSoftInput(0,InputMethodManager.HIDE_NOT_ALWAYS);
 
                     int pinNum = scanner.nextInt(); // 스캐너로 입력받아 정수형으로 저장
                     String pinString = Integer.toString(pinNum);  // 입력받은 pin을 문자열로 변환

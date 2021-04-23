@@ -123,6 +123,44 @@
         app:layout_constraintHeight_percent="0.19"
         app:srcCompat="@drawable/bluebox" />
 
+    <ImageView
+        android:id="@+id/lockimg"
+        android:layout_width="34px"
+        android:layout_height="39px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839"
+        app:srcCompat="@drawable/lock_closed" />
+
+    <ImageView
+        android:id="@+id/whiteimg"
+        android:layout_width="5.63px"
+        android:layout_height="36.08px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839"
+        app:srcCompat="@drawable/whitebox" />
+
+    <ImageView
+        android:id="@+id/fingerimg"
+        android:layout_width="34px"
+        android:layout_height="39px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839"
+        app:srcCompat="@drawable/finger_print" />
+
     <TextView
         android:id="@+id/text4"
         android:layout_width="wrap_content"

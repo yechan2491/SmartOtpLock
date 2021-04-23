@@ -1,11 +1,13 @@
 package com.cookandroid.smartotplock;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.andrognito.patternlockview.PatternLockView;
@@ -42,22 +44,52 @@ public class CheckPasswordActivity extends AppCompatActivity {
 
             @Override
             public void onComplete(List<PatternLockView.Dot> pattern) {
-                if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))) {
-                    Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    if(count<5) {
-                        Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                        mPatternLockView.clearPattern();
-                        count++;
-                    } else if(count==5) {
-                        Toast.makeText(CheckPasswordActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), sign_up.class);
-                        startActivity(intent);
-                        finish();
+                if(PatternLockUtils.patternToString(mPatternLockView, pattern).length() >= 4) {  // 4개 이상의 점이 연결되었을 경우
+                    if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))) {
+                        mPatternLockView.setViewMode(PatternLockView.PatternViewMode.CORRECT);
+
+                        final String[] versionArray = new String[] {"지문", "PIN", "패턴"};
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(CheckPasswordActivity.this);
+                        dlg.setTitle("인증수단 선택");
+
+                        dlg.setSingleChoiceItems(versionArray, 0, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();  // 오류나는 부분
+                            }
+                        });
+                        dlg.show();
+
+                        //Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
+                        //startActivity(intent);
+                        //finish();
+                    } else {
+                        if(count<5) {
+                            mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
+                            Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            mPatternLockView.clearPattern();
+                            count++;
+                        } else if(count==5) {
+                            mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
+                            Toast.makeText(CheckPasswordActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), sign_up.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     }
+                } else {  // 4개 미만의 점이 연결되었을 경우
+                    Toast.makeText(CheckPasswordActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
+                    mPatternLockView.clearPattern();
                 }
+
+
             }
 
             @Override
