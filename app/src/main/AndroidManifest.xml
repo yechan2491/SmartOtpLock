@@ -42,6 +42,8 @@
         <activity android:name=".PINCreateActivity2" />
         <activity android:name=".PINCheckActivity"/>
         <activity android:name=".NextActivity"/>
+        <activity android:name=".First_Pattern_Setting" />
+        <activity android:name=".First_Pattern_Check" />
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
