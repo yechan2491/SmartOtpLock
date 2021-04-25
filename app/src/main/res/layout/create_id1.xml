@@ -5,10 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:theme="@style/Theme.AppCompat.Light">
 
     <EditText
-        android:id="@+id/idText"
+        android:id="@+id/phoneText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -23,11 +24,13 @@
         android:theme="@style/EditTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:maxLength="35"
+        android:maxLines="1"/>
 
 
-    <EditText
-        android:id="@+id/passText"
+    <com.cookandroid.smartotplock.EyesEditText
+        android:id="@+id/certificationText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -35,13 +38,15 @@
         android:hint="비밀번호"
         android:textColorHint="#999999"
         android:textSize="16dp"
-        android:drawableRight="@drawable/eye_size_edit"
+        android:inputType="textPassword"
         android:theme="@style/EditTheme"
-        app:layout_constraintEnd_toEndOf="@+id/idText"
-        app:layout_constraintStart_toStartOf="@+id/idText"
-        app:layout_constraintTop_toBottomOf="@+id/idText" />
+        app:layout_constraintEnd_toEndOf="@+id/phoneText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
+        android:maxLength="35"
+        android:maxLines="1"/>
 
-    <EditText
+    <com.cookandroid.smartotplock.EyesEditText
         android:id="@+id/passCheckText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
@@ -50,11 +55,13 @@
         android:hint="비밀번호 재확인"
         android:textColorHint="#999999"
         android:textSize="16dp"
-        android:drawableRight="@drawable/eye_size_edit"
+        android:inputType="textPassword"
         android:theme="@style/EditTheme"
-        app:layout_constraintEnd_toEndOf="@+id/passText"
-        app:layout_constraintStart_toStartOf="@+id/passText"
-        app:layout_constraintTop_toBottomOf="@+id/passText" />
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText"
+        android:maxLength="35"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/textView"
@@ -66,7 +73,7 @@
         android:text="계정 만들기"
         android:textColor="#191919"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/idText"
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
         app:layout_constraintTop_toBottomOf="@+id/backBtn" />
 
     <ImageView
@@ -127,7 +134,8 @@
         android:text="다음"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/passText"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/certificationText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -139,8 +147,9 @@
         android:text="영문 또는 영문과 숫자 조합하여 6~20자"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/idText"
-        app:layout_constraintTop_toBottomOf="@+id/idText" />
+        app:layout_constraintStart_toStartOf="@+id/phoneText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/warningText2"
@@ -148,11 +157,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="문자, 숫자, 기호 중 2개 이상을 포함하여, 10자 이상으로 설정해 주세요.\n기호: !,@,#,$,%,^,*"
+        android:text="문자, 숫자, 기호를 모두 포함하여, 10자 이상으로 설정해 주세요.\n기호: !,@,#,$,%,^,*"
         android:textColor="#ff3120"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@+id/passText"
-        app:layout_constraintTop_toBottomOf="@+id/passText" />
+        app:layout_constraintStart_toStartOf="@+id/certificationText"
+        app:layout_constraintTop_toBottomOf="@+id/certificationText"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/warningText3"
@@ -164,6 +174,7 @@
         android:textColor="#ff3120"
         android:textSize="8dp"
         app:layout_constraintStart_toStartOf="@+id/passCheckText"
-        app:layout_constraintTop_toBottomOf="@+id/passCheckText" />
+        app:layout_constraintTop_toBottomOf="@+id/passCheckText"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
