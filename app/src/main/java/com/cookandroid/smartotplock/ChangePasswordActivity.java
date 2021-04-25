@@ -2,7 +2,9 @@ package com.cookandroid.smartotplock;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +16,15 @@ import java.util.List;
 public class ChangePasswordActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
+    TextView forgotPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+
+        forgotPassword = (TextView) findViewById(R.id.text2);
+        forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "패턴을 잊으셨나요?"에 밑줄긋기
 
         mPatternLockView = (PatternLockView) findViewById(R.id.pattern_lock_view);
         mPatternLockView.addPatternLockListener(new PatternLockViewListener() {

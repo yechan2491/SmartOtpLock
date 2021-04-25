@@ -44,7 +44,7 @@ public class PINCreateActivity2 extends AppCompatActivity {
         }
 
         blueImg = (ImageView) findViewById(R.id.blueimg);
-        textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN 번호를 잊으셨나요?"에 밑줄긋기
+        textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
 
 
         for(i=0; i<imageViews.length; i++) {
