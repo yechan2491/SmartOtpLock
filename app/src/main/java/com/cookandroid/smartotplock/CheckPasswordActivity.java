@@ -48,28 +48,21 @@ public class CheckPasswordActivity extends AppCompatActivity {
                     if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))) {
                         mPatternLockView.setViewMode(PatternLockView.PatternViewMode.CORRECT);
 
+                        // 팝업창에서 인증방식 3개 중 1개 선택하기
                         final String[] versionArray = new String[] {"지문", "PIN", "패턴"};
                         AlertDialog.Builder dlg = new AlertDialog.Builder(CheckPasswordActivity.this);
                         dlg.setTitle("인증수단 선택");
 
-                        dlg.setSingleChoiceItems(versionArray, 0, new DialogInterface.OnClickListener() {
+                        dlg.setItems(versionArray, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-                        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();  // 오류나는 부분
+                                Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                         dlg.show();
-
-                        //Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
-                        //startActivity(intent);
-                        //finish();
                     } else {
                         if(count<5) {
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
