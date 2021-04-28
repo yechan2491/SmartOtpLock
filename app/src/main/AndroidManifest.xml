@@ -40,7 +40,10 @@
         <activity android:name=".ProgramActivity"/>
         <activity android:name=".PINCreateActivity"/>
         <activity android:name=".PINCreateActivity2" />
+        <activity android:name=".PINCreateActivity3" />
         <activity android:name=".PINCheckActivity"/>
+        <activity android:name=".PINCheckActivity2" />
+        <activity android:name=".PINCheckActivity3" />
         <activity android:name=".NextActivity"/>
         <activity android:name=".First_Pattern_Setting" />
         <activity android:name=".First_Pattern_Check" />

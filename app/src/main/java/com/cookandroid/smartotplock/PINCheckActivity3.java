@@ -2,18 +2,20 @@ package com.cookandroid.smartotplock;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PINCheckActivity extends AppCompatActivity {
+public class PINCheckActivity3 extends AppCompatActivity {
 
     int pincheck;
     int[] pin2 = {0, 0, 0, 0};
@@ -23,6 +25,8 @@ public class PINCheckActivity extends AppCompatActivity {
     ImageButton btnDelete;
     Button[] numButtons = new Button[10];
     Integer[] numBtnIDs = {R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9};
+    TextView[] textViews = new TextView[6];
+    Integer[] textViewsID = {R.id.text1, R.id.text2, R.id.text3, R.id.text4, R.id.text5, R.id.text6};
 
     int i=0, j=0, count=0, wrongCount=0, deleteCount=0;
 
@@ -31,7 +35,7 @@ public class PINCheckActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pincheck);
+        setContentView(R.layout.pincheck3);
 
         btnCancel = (Button) findViewById(R.id.btn_cancel);
         btnDelete = (ImageButton) findViewById(R.id.btn_delete);
@@ -43,6 +47,12 @@ public class PINCheckActivity extends AppCompatActivity {
         for (i = 0; i < numBtnIDs.length; i++) {
             numButtons[i] = (Button) findViewById(numBtnIDs[i]);
         }
+
+        for(i=0; i<textViews.length; i++) {
+            textViews[i] = (TextView) findViewById(textViewsID[i]);
+        }
+
+        textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         pincheck = preferences.getInt("pin", 0);
@@ -58,7 +68,7 @@ public class PINCheckActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     if(j>=0) {
                         pin2[j] = Integer.parseInt(numButtons[index].getText().toString()); // pin2 배열에 사용자가 누른 버튼의 숫자 대입
-                        imageViews[j].setImageResource(R.drawable.ic_black_circle);  // 버튼 1개 누를 때마다 pin 입력 이미지 변경
+                        imageViews[j].setImageResource(R.drawable.bluecircle);  // 버튼 1개 누를 때마다 pin 입력 이미지 변경
                         j++;
                         count++;
                         Log.d(TAG, "j : "+j);
@@ -76,7 +86,7 @@ public class PINCheckActivity extends AppCompatActivity {
                             } else {    // pin을 잘못 입력한 경우
                                 for(int a=0; a<4; a++) {
                                     pin2[a] = 0;    // 4자리 수 모두 0으로 초기화
-                                    imageViews[a].setImageResource(R.drawable.ic_white_circle);
+                                    imageViews[a].setImageResource(R.drawable.graycircle);
                                 }
 
                                 wrongCount++;    // 틀린 횟수 증가
@@ -110,9 +120,9 @@ public class PINCheckActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int a = j;
                 if(a>=1) {
-                    imageViews[a-1].setImageResource(R.drawable.ic_white_circle);
+                    imageViews[a-1].setImageResource(R.drawable.graycircle);
                 } else {
-                    imageViews[0].setImageResource(R.drawable.ic_white_circle);
+                    imageViews[0].setImageResource(R.drawable.graycircle);
                 }
 
                 deleteCount++;

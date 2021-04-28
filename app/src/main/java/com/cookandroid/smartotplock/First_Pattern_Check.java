@@ -62,8 +62,9 @@ public class First_Pattern_Check extends AppCompatActivity {
                         dlg.show();
                     } else {
                         if(count<5) {
-                            mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
+                            System.out.println("A");
                             Toast.makeText(First_Pattern_Check.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
                             mPatternLockView.clearPattern();
                             count++;
                         } else if(count==5) {
