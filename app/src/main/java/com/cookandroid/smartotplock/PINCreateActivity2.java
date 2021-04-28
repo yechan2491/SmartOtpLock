@@ -42,9 +42,6 @@ public class PINCreateActivity2 extends AppCompatActivity {
 
         textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
 
-
-
-
         for(i=0; i<imageViews.length; i++) {
             final int index;
             index = i;
@@ -87,6 +84,8 @@ public class PINCreateActivity2 extends AppCompatActivity {
         }
 
     }
+
+
 
 //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {

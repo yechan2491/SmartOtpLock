@@ -90,7 +90,7 @@ public class PINCheckActivity3 extends AppCompatActivity {
                                 }
 
                                 wrongCount++;    // 틀린 횟수 증가
-                                Toast.makeText(getApplication(), "PIN이 틀렸습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
 
                                 if(wrongCount>=5) {    // @@수정해야 할 부분@@
                                     Intent intent = new Intent(getApplicationContext(), sign_up.class);
