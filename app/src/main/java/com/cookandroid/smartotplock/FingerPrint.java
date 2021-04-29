@@ -34,6 +34,22 @@ public class FingerPrint extends AppCompatActivity {
 
         fingerPrint = (ImageView) findViewById(R.id.fingerimg);
 
+        fingerPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                        .setTitle("지문 인증")
+                        .setSubtitle("기기에 등록된 지문을 이용하여\n지문을 인증해주세요.")
+                        .setNegativeButtonText("취소")
+                        .setDeviceCredentialAllowed(false)
+                        .build();
+
+                biometricPrompt.authenticate(promptInfo);
+
+
+            }
+        });
+
         executor = ContextCompat.getMainExecutor(this);
         biometricPrompt = new BiometricPrompt(this, executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
@@ -81,13 +97,6 @@ public class FingerPrint extends AppCompatActivity {
             }
         });
 
-        promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("지문 인증")
-                .setSubtitle("기기에 등록된 지문을 이용하여 지문을 인증해주세요.")
-                .setNegativeButtonText("취소")
-                .setDeviceCredentialAllowed(false)
-                .build();
 
-        biometricPrompt.authenticate(promptInfo);
     }
 }
