@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.smartotplock">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
     <application
         android:allowBackup="true"
@@ -48,6 +49,7 @@
         <activity android:name=".First_Pattern_Setting" />
         <activity android:name=".First_Pattern_Check" />
         <activity android:name=".FingerPrint" />
+        <activity android:name=".FingerPrintSuccess" />
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>

@@ -23,52 +23,55 @@
     <TextView
         android:id="@+id/text1"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="4.13:1"
-        android:autoSizeTextType="uniform"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
-        android:text="새로운 패턴을 그려주세요"
+        android:gravity="center"
+        android:text="지문을 입력해주세요."
         android:textColor="#191919"
         android:textSize="48px"
-        app:layout_constraintBottom_toTopOf="@+id/pattern_lock_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoImage"
-        app:layout_constraintVertical_bias="0.4"
-        app:layout_constraintWidth_percent="0.6"/>
-
-    <com.andrognito.patternlockview.PatternLockView
-        android:id="@+id/pattern_lock_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:dotNormalSize="48px"
-        app:dotSelectedSize="50px"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintWidth_percent="0.6"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="4.13:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        app:correctStateColor="#3776F3"
-        app:normalStateColor="#707070"
-        app:wrongStateColor="#FF3129" />
+        app:layout_constraintVertical_bias="0.224"
+        app:layout_constraintWidth_percent="0.65" />
 
     <TextView
         android:id="@+id/text2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/noto_sans_cjkkr_light"
-        android:text="패턴을 잊으셨나요?"
-        android:textColor="#767676"
-        app:layout_constraintBottom_toTopOf="@+id/blueimg"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/noto_sans_cjkkr_bold"
+        android:gravity="center"
+        android:text="인증이 완료 되었습니다."
+        android:textColor="#707070"
+        android:textSize="36px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="4.13:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pattern_lock_view"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44"
+        app:layout_constraintWidth_percent="0.14"
+        app:srcCompat="@drawable/correct_finger_print" />
+
 
     <ImageView
         android:id="@+id/blueimg"
@@ -81,6 +84,20 @@
         app:layout_constraintHeight_percent="0.19"
         app:layout_constraintVertical_bias="0.88"
         app:srcCompat="@drawable/bluebox" />
+
+    <ImageView
+        android:id="@+id/lockimg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.035"
+        app:layout_constraintHeight_percent="0.02"
+        app:layout_constraintVertical_bias="0.839"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lock_closed" />
 
     <ImageView
         android:id="@+id/whiteimg"
@@ -96,7 +113,7 @@
         app:srcCompat="@drawable/whitebox" />
 
     <ImageView
-        android:id="@+id/fingerimg"
+        android:id="@+id/pinImg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +124,7 @@
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/finger_print" />
+        app:srcCompat="@drawable/pin" />
 
     <TextView
         android:id="@+id/text4"
@@ -127,27 +144,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/blueimg"/>
 
-    <ImageView
-        android:id="@+id/pinImg"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.035"
-        app:layout_constraintHeight_percent="0.02"
-        app:layout_constraintVertical_bias="0.839"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pin" />
-
     <TextView
         android:id="@+id/text5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/noto_sans_cjkkr_light"
-        android:text="PIN"
+        android:text="패턴"
         android:textColor="#FFFFFF"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintVertical_bias="0.85"
@@ -162,7 +165,7 @@
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/noto_sans_cjkkr_light"
-        android:text="지문"
+        android:text="PIN"
         android:textColor="#FFFFFF"
         app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintVertical_bias="0.85"

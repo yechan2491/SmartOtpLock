@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,7 +74,13 @@ public class CheckPasswordActivity extends AppCompatActivity {
                         if(count<5) {
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
                             Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                            mPatternLockView.clearPattern();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mPatternLockView.clearPattern();
+                                }
+                            }, 200);
                             count++;
                         } else if(count==5) {
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);

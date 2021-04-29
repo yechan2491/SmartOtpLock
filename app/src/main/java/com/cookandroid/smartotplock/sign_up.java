@@ -81,7 +81,7 @@ public class sign_up extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), PINCreateActivity2.class);
+                Intent intent =new Intent(getApplicationContext(), FingerPrint.class);
                 startActivity(intent);
             }
         });

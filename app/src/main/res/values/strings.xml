@@ -4,4 +4,7 @@
     <string name="sign_passwd"><u>비밀번호 찾기</u></string>
     <string name="search_id"><u>ID 찾기</u></string>
     <string name="can_not_find_pairing_button"><u>밑줄</u></string>
+    <string name="auth_success_message">지문일치</string>
+    <string name="auth_fail_message">지문불일치</string>
+    <string name="auth_error_message">인증에러발생</string>
 </resources>
