@@ -14,8 +14,8 @@ public class intro01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro01);
 
-        Intent intent = new Intent(this, loading.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, loading.class);
+//        startActivity(intent);
 
 
 
@@ -33,6 +33,5 @@ public class intro01 extends AppCompatActivity {
 
             }
         });
-
     }
 }

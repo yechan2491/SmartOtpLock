@@ -1,6 +1,7 @@
 package com.cookandroid.smartotplock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class sign_up extends AppCompatActivity {
     TextView sign_up_text;
     private View loginButton;
     Button loginBtn;
+    SharedPreferences preferences;
     //private TextView nickName;
     //private ImageView profileImage;
 
@@ -35,6 +37,19 @@ public class sign_up extends AppCompatActivity {
         loginButton = findViewById(R.id.login);
 //        nickName=findViewById(R.id.nickname);
 //        profileImage=findViewById(R.id.profile);
+
+
+        //하은 수정(04.30)
+        Intent intent = new Intent(this, loading.class);
+        startActivity(intent);
+
+        preferences = getSharedPreferences("PREFS", MODE_PRIVATE);
+        checkFirstRun();
+
+
+
+
+
 
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
             @Override
@@ -85,6 +100,16 @@ public class sign_up extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void checkFirstRun() {
+        boolean isFirstRun = preferences.getBoolean("isFirstRun", true);
+        if(isFirstRun) {
+            Intent intent = new Intent(sign_up.this, intro01.class);
+            startActivity(intent);
+
+            preferences.edit().putBoolean("isFirstRun", false).apply();
+        }
     }
 
 

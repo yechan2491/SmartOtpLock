@@ -1,5 +1,6 @@
 package com.cookandroid.smartotplock;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -23,6 +24,4 @@ public class loading extends AppCompatActivity {
             }
         }, 2000);
     }
-
-
 }
