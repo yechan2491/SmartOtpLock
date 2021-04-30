@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#1c68ff"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/white_arrow"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스마트락 OTP"
+            android:textSize="16dp"
+            android:textColor="#f1f1f5"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:textStyle="bold"
+            android:layout_marginTop="42dp"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="59dp"
+        android:fontFamily="@font/noto_sans_cjkkr_bold"
+        android:text="도어락에 해당 OTP번호 6자리를 입력해 주세요."
+        android:textColor="#707070"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:background="#707070"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:background="#707070"
+        app:layout_constraintStart_toEndOf="@+id/view8"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="26dp"
+        android:background="#707070"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/solid_button"
+        android:fontFamily="@font/noto_sans_cjkkr_medium"
+        android:text="재발급"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="166dp"
+        android:fontFamily="@font/noto_sans_cjkkr_medium"
+        android:text="도어락 인증키"
+        android:textColor="#707070"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_cjkkr_medium"
+        android:text="ABCD - EFGH - IJKL"
+        android:textColor="#191919"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#f1f1f5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="·도어락인증이 안되시나요?"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="-20dp"
+            android:text="메뉴 창에서 도어락 인증키 정보가 변경되었는지 확인해보세요."
+            android:fontFamily="@font/noto_sans_cjkkr_medium"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="4"
+        android:textColor="#191919"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="3"
+        android:textColor="#191919"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="2"
+        android:textColor="#191919"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="5"
+        android:textColor="#191919"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:text="1"
+        android:textColor="#191919"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="60dp"
+        android:text="6"
+        android:textColor="#191919"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:background="#707070"
+        app:layout_constraintStart_toEndOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:background="#707070"
+        app:layout_constraintStart_toEndOf="@+id/view5"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:background="#707070"
+        app:layout_constraintStart_toEndOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/info_circle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
