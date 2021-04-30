@@ -58,5 +58,25 @@ public class PINCheckActivity2 extends AppCompatActivity {
             });
         }
 
+        // 다른 인증방식 선택 - 패턴 눌렀을 경우
+        textViews[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // 다른 인증방식 선택 - 지문 눌렀을 경우
+        textViews[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FingerPrint.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 }

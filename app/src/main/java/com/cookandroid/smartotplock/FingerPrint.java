@@ -20,7 +20,7 @@ public class FingerPrint extends AppCompatActivity {
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
-    TextView textView;
+    TextView textView, textPattern, textPin;
     ImageView fingerPrint;
     int i=0;
 
@@ -30,6 +30,8 @@ public class FingerPrint extends AppCompatActivity {
         setContentView(R.layout.finger_print);
 
         textView = (TextView) findViewById(R.id.text2);
+        textPattern = (TextView) findViewById(R.id.text5);
+        textPin = (TextView) findViewById(R.id.text6);
         textView.setVisibility(View.INVISIBLE);
 
         fingerPrint = (ImageView) findViewById(R.id.fingerimg);
@@ -97,6 +99,25 @@ public class FingerPrint extends AppCompatActivity {
             }
         });
 
+        // 다른 인증방식 선택 - 패턴 눌렀을 경우
+        textPattern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // 다른 인증방식 선택 - PIN 눌렀을 경우
+        textPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PINCreateActivity2.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 }

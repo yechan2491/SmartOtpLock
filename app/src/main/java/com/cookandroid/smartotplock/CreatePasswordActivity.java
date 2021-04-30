@@ -68,19 +68,23 @@ public class CreatePasswordActivity extends AppCompatActivity {
             }
         });
 
+        // 다른 인증방식 선택 - PIN 눌렀을 경우
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCheckActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PINCreateActivity2.class);
                 startActivity(intent);
                 finish();
             }
         });
 
+        // 다른 인증방식 선택 - 지문 눌렀을 경우
         textFingerPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), FingerPrint.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
