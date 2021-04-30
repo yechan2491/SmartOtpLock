@@ -89,7 +89,7 @@ public class FingerPrint extends AppCompatActivity {
                 if (i==5) {
                     textView.setVisibility(View.VISIBLE);
                     textView.setText("본인인증 화면으로 넘어갑니다.");
-                    Intent intent = new Intent(getApplicationContext(), sign_up.class);
+                    Intent intent = new Intent(getApplicationContext(), Verification.class);
                     startActivity(intent);
                     finish();
                     i=0;

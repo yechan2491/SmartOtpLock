@@ -52,6 +52,7 @@ public class PINCheckActivity3 extends AppCompatActivity {
             textViews[i] = (TextView) findViewById(textViewsID[i]);
         }
 
+        textViews[1].setVisibility(View.INVISIBLE);
         textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
@@ -90,10 +91,21 @@ public class PINCheckActivity3 extends AppCompatActivity {
                                 }
 
                                 wrongCount++;    // 틀린 횟수 증가
-                                Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                                if (wrongCount>=1 && wrongCount<3) {
+                                    textViews[1].setVisibility(View.VISIBLE);
+                                    Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                                }
+                                if (wrongCount>=3 && wrongCount<5){
+                                    textViews[1].setVisibility(View.VISIBLE);
+                                    textViews[1].setText("5회 이상 틀릴 시 본인인증이 필요합니다.");
+                                    Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                                }
 
-                                if(wrongCount>=5) {    // @@수정해야 할 부분@@
-                                    Intent intent = new Intent(getApplicationContext(), sign_up.class);
+                                if (wrongCount==5) {
+                                    textViews[1].setVisibility(View.VISIBLE);
+                                    textViews[1].setText("본인인증 화면으로 넘어갑니다.");
+                                    Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), Verification.class);
                                     startActivity(intent);
                                     finish();
                                 }

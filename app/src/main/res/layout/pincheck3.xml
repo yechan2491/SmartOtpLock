@@ -59,7 +59,7 @@
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
         android:gravity="center"
-        android:text="연속 3번 틀릴 시 본인인증이 필요합니다."
+        android:text="PIN이 일치하지 않습니다."
         android:textColor="#707070"
         android:textSize="36px"
         app:layout_constraintBottom_toTopOf="@+id/img3"
