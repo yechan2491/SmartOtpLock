@@ -24,8 +24,8 @@ public class CheckPasswordActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
     String password;
-    int count = 1;
-    TextView textPin, textFingerPrint, forgotPassword;
+    int count = 0;
+    TextView textPin, textFingerPrint, forgotPassword, errorMessage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +36,9 @@ public class CheckPasswordActivity extends AppCompatActivity {
         textFingerPrint = (TextView) findViewById(R.id.text6);
         forgotPassword = (TextView) findViewById(R.id.text2);
         forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "패턴을 잊으셨나요?"에 밑줄긋기
+
+        errorMessage = (TextView) findViewById(R.id.errorMessage);
+        errorMessage.setVisibility(View.INVISIBLE);
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         password = preferences.getString("password", "0");
@@ -74,7 +77,9 @@ public class CheckPasswordActivity extends AppCompatActivity {
                         });
                         dlg.show();
                     } else {
-                        if(count<5) {
+                        count++;
+                        if(count>=1 && count<3) {
+                            errorMessage.setVisibility(View.VISIBLE);
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
                             Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                             Handler handler = new Handler();
@@ -84,8 +89,25 @@ public class CheckPasswordActivity extends AppCompatActivity {
                                     mPatternLockView.clearPattern();
                                 }
                             }, 200);
-                            count++;
-                        } else if(count==5) {
+                            //count++;
+                        }
+                        if(count>=3 && count<5) {
+                            errorMessage.setVisibility(View.VISIBLE);
+                            errorMessage.setText("5회 이상 틀릴 시 본인인증이 필요합니다.");
+                            mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
+                            Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mPatternLockView.clearPattern();
+                                }
+                            }, 200);
+                            //count++;
+                        }
+                        if(count==5) {
+                            errorMessage.setVisibility(View.VISIBLE);
+                            errorMessage.setText("본인인증 화면으로 넘어갑니다.");
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
                             Toast.makeText(CheckPasswordActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), Verification.class);
