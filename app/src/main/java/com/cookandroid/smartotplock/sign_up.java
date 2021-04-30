@@ -42,12 +42,8 @@ public class sign_up extends AppCompatActivity {
         //하은 수정(04.30)
         Intent intent = new Intent(this, loading.class);
         startActivity(intent);
-
         preferences = getSharedPreferences("PREFS", MODE_PRIVATE);
         checkFirstRun();
-
-
-
 
 
 
@@ -102,13 +98,15 @@ public class sign_up extends AppCompatActivity {
         });
     }
 
+    // 앱을 처음으로 실행한다면 인트로화면1, 2 출력
+    // 처음 실행이 아니라면 로딩화면 다음으로 바로 로그인 화면 출력
     public void checkFirstRun() {
         boolean isFirstRun = preferences.getBoolean("isFirstRun", true);
         if(isFirstRun) {
             Intent intent = new Intent(sign_up.this, intro01.class);
             startActivity(intent);
 
-            preferences.edit().putBoolean("isFirstRun", false).apply();
+            preferences.edit().putBoolean("isFirstRun", true).apply();
         }
     }
 
