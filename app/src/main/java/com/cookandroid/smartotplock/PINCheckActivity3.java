@@ -54,6 +54,14 @@ public class PINCheckActivity3 extends AppCompatActivity {
 
         textViews[1].setVisibility(View.INVISIBLE);
         textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
+        textViews[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PinForgot.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         pincheck = preferences.getInt("pin", 0);

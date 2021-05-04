@@ -48,6 +48,14 @@ public class PINCreateActivity3 extends AppCompatActivity {
         }
 
         textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
+        textViews[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PinForgot.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         for(i=0; i<numBtnIDs.length; i++) {
             final int index;

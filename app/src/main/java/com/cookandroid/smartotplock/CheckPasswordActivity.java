@@ -36,6 +36,14 @@ public class CheckPasswordActivity extends AppCompatActivity {
         textFingerPrint = (TextView) findViewById(R.id.text6);
         forgotPassword = (TextView) findViewById(R.id.text2);
         forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "패턴을 잊으셨나요?"에 밑줄긋기
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PatternForgot.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         errorMessage = (TextView) findViewById(R.id.errorMessage);
         errorMessage.setVisibility(View.INVISIBLE);
