@@ -42,7 +42,7 @@ public class sign_up extends AppCompatActivity {
         //하은 수정(04.30)
         Intent intent = new Intent(this, loading.class);
         startActivity(intent);
-        preferences = getSharedPreferences("PREFS", MODE_PRIVATE);
+        preferences = getSharedPreferences("FirstRun", MODE_PRIVATE);
         checkFirstRun();
 
 
@@ -106,7 +106,7 @@ public class sign_up extends AppCompatActivity {
             Intent intent = new Intent(sign_up.this, intro01.class);
             startActivity(intent);
 
-            preferences.edit().putBoolean("isFirstRun", true).apply();
+            preferences.edit().putBoolean("isFirstRun", false).apply();
         }
     }
 
