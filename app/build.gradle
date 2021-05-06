@@ -40,12 +40,12 @@ dependencies {
     implementation "com.kakao.sdk:v2-link:2.1.0" // 메시지
     implementation "com.kakao.sdk:v2-navi:2.1.0" // 카카오 네비
     implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation 'androidx.biometric:biometric:1.0.1' // 지문인식
     
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     compile 'com.andrognito.patternlockview:patternlockview:1.0.0' // 패턴라이브러리
-
 
 }

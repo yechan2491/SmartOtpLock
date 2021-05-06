@@ -3,5 +3,7 @@
     <style name="EditTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/cursorColor</item>
         <item name="colorControlNormal">@color/nomalColor</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

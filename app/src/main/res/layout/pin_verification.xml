@@ -98,6 +98,24 @@
         app:srcCompat="@drawable/graycircle" />
 
     <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/noto_sans_cjkkr_bold"
+        android:gravity="center"
+        android:text="PIN이 일치하지 않습니다."
+        android:textColor="#707070"
+        android:textSize="36px"
+        app:layout_constraintBottom_toTopOf="@+id/img3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintVertical_bias="0.083"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <TextView
         android:id="@+id/text3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -251,6 +269,8 @@
                 android:background="#00ff0000" />
         </TableRow>
     </TableLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

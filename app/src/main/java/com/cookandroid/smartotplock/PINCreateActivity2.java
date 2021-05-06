@@ -41,6 +41,14 @@ public class PINCreateActivity2 extends AppCompatActivity {
         }
 
         textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
+        textViews[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PinForgot.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         for(i=0; i<imageViews.length; i++) {
             final int index;
@@ -81,8 +89,27 @@ public class PINCreateActivity2 extends AppCompatActivity {
 
                 }
             });
-        }
 
+            // 다른 인증방식 선택 - 패턴 눌렀을 경우
+            textViews[4].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+
+            // 다른 인증방식 선택 - 지문 눌렀을 경우
+            textViews[5].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), FingerPrint.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
     }
 
 
