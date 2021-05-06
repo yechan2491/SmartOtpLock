@@ -12,15 +12,14 @@
         android:theme="@style/Theme.Design.NoActionBar"
         android:name=".KakaoApplication">
 
-        <activity android:name=".intro01">
+        <activity android:name=".loading">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".loading"/>
+        <activity android:name=".intro01"/>
         <activity android:name=".intro02"/>
         <activity android:name=".sign_up"/>
         <activity android:name=".create_id1"/>

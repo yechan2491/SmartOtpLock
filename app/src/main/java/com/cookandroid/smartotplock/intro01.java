@@ -14,9 +14,6 @@ public class intro01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro01);
 
-        Intent intent = new Intent(this, loading.class);
-        startActivity(intent);
-
 
 
         intro01ImgBtn01=(ImageButton)findViewById(R.id.intro01ImgBtn01);
