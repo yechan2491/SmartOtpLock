@@ -32,9 +32,11 @@ public class loading extends AppCompatActivity {
                     editor.putBoolean("first_run",false);
                     editor.commit();
 
+
                 } else if(first_check==false){
                     Intent intent = new Intent(loading.this, sign_up.class);
                     startActivity(intent);
+
                 }
                 finish();
             }

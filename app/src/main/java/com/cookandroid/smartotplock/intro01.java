@@ -14,8 +14,6 @@ public class intro01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro01);
 
-
-
         intro01ImgBtn01=(ImageButton)findViewById(R.id.intro01ImgBtn01);
         intro01ImgBtn01.setOnClickListener(new View.OnClickListener() {
             @Override
