@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,8 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PINCheckActivity3 extends AppCompatActivity {
 
-    int pincheck;
-    int[] pin2 = {0, 0, 0, 0};
+    String pincheck;
+    //int[] pin2 = {0, 0, 0, 0};
+    String pin2 = "";
+
     ImageView[] imageViews = new ImageView[4];
     Integer[] numImageIDs = {R.id.img1, R.id.img2, R.id.img3, R.id.img4};
     Button btnCancel;
@@ -64,7 +67,8 @@ public class PINCheckActivity3 extends AppCompatActivity {
         });
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-        pincheck = preferences.getInt("pin", 0);
+        //pincheck = preferences.getInt("pin", 0);
+        pincheck = preferences.getString("pin", "");
 
         j = count - deleteCount;
 
@@ -76,27 +80,40 @@ public class PINCheckActivity3 extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if(j>=0) {
-                        pin2[j] = Integer.parseInt(numButtons[index].getText().toString()); // pin2 배열에 사용자가 누른 버튼의 숫자 대입
+                        //pin2[j] = Integer.parseInt(numButtons[index].getText().toString()); // pin2 배열에 사용자가 누른 버튼의 숫자 대입
+                        pin2 = pin2 + numButtons[index].getText().toString();
+
                         imageViews[j].setImageResource(R.drawable.bluecircle);  // 버튼 1개 누를 때마다 pin 입력 이미지 변경
                         j++;
                         count++;
                         Log.d(TAG, "j : "+j);
                         Log.d(TAG, "count : "+count);
-                        Log.d(TAG, "PIN : "+pin2[0]+pin2[1]+pin2[2]+pin2[3]);
+                        //Log.d(TAG, "PIN : "+pin2[0]+pin2[1]+pin2[2]+pin2[3]);
+                        Log.d(TAG, "설정PIN : "+pincheck);
+                        Log.d(TAG, "PIN2 : "+pin2);
 
                         if (j == 4) {    // 사용자가 4자리의 수를 입력했을 때
                             count=0;
                             j=0;
 
-                            if (pincheck == pin2[0] + pin2[1] + pin2[2] + pin2[3]) {    // 처음 설정한 pin이 저장된 pincheck와 입력한 4자리 수가 같을 경우
+                            if (pincheck.equals(pin2)) {    // 처음 설정한 pin이 저장된 pincheck와 입력한 4자리 수가 같을 경우
                                 Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);  // 패턴 설정 화면으로 이동
                                 startActivity(intent);
                                 finish();
                             } else {    // pin을 잘못 입력한 경우
-                                for(int a=0; a<4; a++) {
-                                    pin2[a] = 0;    // 4자리 수 모두 0으로 초기화
-                                    imageViews[a].setImageResource(R.drawable.graycircle);
-                                }
+                                Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        for(int a=0; a<4; a++) {
+                                            //pin2[a] = 0;    // 4자리 수 모두 0으로 초기화
+                                            pin2 = "";
+
+                                            imageViews[a].setImageResource(R.drawable.graycircle);
+                                        }
+                                    }
+                                }, 200);
+
 
                                 wrongCount++;    // 틀린 횟수 증가
                                 if (wrongCount>=1 && wrongCount<3) {

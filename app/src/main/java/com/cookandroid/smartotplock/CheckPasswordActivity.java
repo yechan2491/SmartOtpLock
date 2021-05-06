@@ -96,7 +96,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
                                 public void run() {
                                     mPatternLockView.clearPattern();
                                 }
-                            }, 200);
+                            }, 1000);
                             //count++;
                         }
                         if(count>=3 && count<5) {

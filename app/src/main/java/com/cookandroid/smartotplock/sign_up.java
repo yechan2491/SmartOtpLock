@@ -107,6 +107,7 @@ public class sign_up extends AppCompatActivity {
             startActivity(intent);
 
             preferences.edit().putBoolean("isFirstRun", false).apply();
+
         }
     }
 
