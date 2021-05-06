@@ -81,9 +81,7 @@ public class PINCreateActivity3 extends AppCompatActivity {
 
                         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
                         SharedPreferences.Editor editor = preferences.edit();
-                        //editor.putInt("pin", pin[0]+pin[1]+pin[2]+pin[3]); // PIN이라는 key에 입력받은 pin 네자리 저장
-                        editor.putString("pin", pin);
-
+                        editor.putString("pin", pin); // PIN이라는 key에 입력받은 pin 네자리 저장
                         editor.apply(); // editor 종료
 
                         Intent intent = new Intent(getApplicationContext(), PINCheckActivity2.class);

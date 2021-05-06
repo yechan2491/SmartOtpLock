@@ -53,6 +53,8 @@
         <activity android:name=".Verification" />
         <activity android:name=".PinForgot" />
         <activity android:name=".PatternForgot" />
+        <activity android:name=".PINVerification" />
+        <activity android:name=".PINVerification2" />
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
