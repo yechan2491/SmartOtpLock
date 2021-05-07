@@ -45,8 +45,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.35"
-        tools:layout_constraintHorizontal_bias="0.112"
-        tools:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintVertical_bias="0.235" />
 
     <ImageView
         android:id="@+id/imageView3"
