@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.smartotplock">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
-        android:name=".KakaoApplication">
+        android:name=".KakaoApplication"
+        android:networkSecurityConfig="@xml/network_security_config">
 
         <activity android:name=".loading">
             <intent-filter>
@@ -20,7 +23,7 @@
         </activity>
         <activity android:name=".intro01"/>
         <activity android:name=".intro02"/>
-        <activity android:name=".sign_up"/>
+        <activity android:name=".sign_up" />
         <activity android:name=".create_id1"/>
         <activity android:name=".service_terms"/>
         <activity android:name=".terms1"/>
@@ -29,8 +32,8 @@
         <activity android:name=".terms4"/>
         <activity android:name=".terms5"/>
         <activity android:name=".create_id2"/>
-        <activity android:name=".create_id3"/>
-        <activity android:name=".create_id3_blockchain"/>
+        <activity android:name=".create_id3" />
+        <activity android:name=".create_id3_blockchain" />
         <activity android:name=".setting"/>
         <activity android:name=".CreatePasswordActivity"/>
         <activity android:name=".CheckPasswordActivity"/>
