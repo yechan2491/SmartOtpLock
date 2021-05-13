@@ -105,7 +105,7 @@ public class PINCheckActivity3 extends AppCompatActivity {
                                 // 틀릴 때마다 진동 울리기
                                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                                 Log.d("test", "A");
-                                vibrator.vibrate(300);
+                                vibrator.vibrate(500);
 
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {

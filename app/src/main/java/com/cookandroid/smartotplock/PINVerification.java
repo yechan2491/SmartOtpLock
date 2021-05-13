@@ -21,7 +21,7 @@ public class PINVerification extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pin_create01);
+        setContentView(R.layout.pin_create02);
 
         for(i=0; i<imageViews.length; i++) {
             imageViews[i] = (ImageView) findViewById(numImageIDs[i]);

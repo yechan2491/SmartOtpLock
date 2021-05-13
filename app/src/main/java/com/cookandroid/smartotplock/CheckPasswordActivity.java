@@ -141,7 +141,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCreateActivity2.class);
+                Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
                 startActivity(intent);
                 finish();
             }

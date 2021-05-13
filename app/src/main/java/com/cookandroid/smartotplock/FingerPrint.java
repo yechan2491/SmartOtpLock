@@ -103,7 +103,7 @@ public class FingerPrint extends AppCompatActivity {
         textPattern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CheckPasswordActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -113,7 +113,7 @@ public class FingerPrint extends AppCompatActivity {
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCreateActivity2.class);
+                Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
                 startActivity(intent);
                 finish();
             }
