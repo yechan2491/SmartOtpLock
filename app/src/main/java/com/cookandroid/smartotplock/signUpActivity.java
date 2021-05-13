@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +52,7 @@ public class signUpActivity extends AppCompatActivity {
 
         sign_up_text = (TextView) findViewById(R.id.sign_up_text);
         loginBtn = (Button) findViewById(R.id.textView2);
-        loginButton = findViewById(R.id.login);
+        loginButton = (ImageView) findViewById(R.id.login);
 //        nickName=findViewById(R.id.nickname);
 //        profileImage=findViewById(R.id.profile);
 

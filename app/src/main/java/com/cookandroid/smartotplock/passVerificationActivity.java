@@ -61,7 +61,7 @@ public class passVerificationActivity extends AppCompatActivity {
         textViews[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), patternCreateActivity.class);
+                Intent intent = new Intent(getApplicationContext(), patternVerification.class);
                 startActivity(intent);
                 finish();
             }
