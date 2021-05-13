@@ -156,7 +156,7 @@ public class sign_up extends AppCompatActivity {
                     Intent intent =new Intent(getApplicationContext(), PINCreateActivity3.class); // PIN 설정 화면으로 이동
                     startActivity(intent);
                 } else {
-                    Intent intent =new Intent(getApplicationContext(), PINVerification2.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
+                    Intent intent =new Intent(getApplicationContext(), PINVerification.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
                     startActivity(intent);
                 }
             }
