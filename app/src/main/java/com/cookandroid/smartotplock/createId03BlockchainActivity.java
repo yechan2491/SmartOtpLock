@@ -35,7 +35,7 @@ public class createId03BlockchainActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), otpCheckActivity.class);
+                Intent intent=new Intent(getApplicationContext(), signUpActivity.class);
                 startActivity(intent);
             }
         });
