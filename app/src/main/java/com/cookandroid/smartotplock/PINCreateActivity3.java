@@ -73,7 +73,7 @@ public class PINCreateActivity3 extends AppCompatActivity {
                     j++;
                     count++; // 버튼 누른 횟수 1씩 증가
 
-                    if(j == 4) {
+                    if(j == 4) {    // 사용자가 4자리의 수를 입력했을 때
                         count=0;
                         j=0;
 
@@ -84,7 +84,7 @@ public class PINCreateActivity3 extends AppCompatActivity {
                         editor.putString("pin", pin); // PIN이라는 key에 입력받은 pin 네자리 저장
                         editor.apply(); // editor 종료
 
-                        Intent intent = new Intent(getApplicationContext(), PINCheckActivity2.class);
+                        Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
                         startActivity(intent);
                         finish(); // 현재 intent 종료
                     }

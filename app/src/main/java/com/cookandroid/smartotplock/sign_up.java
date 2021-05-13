@@ -153,10 +153,10 @@ public class sign_up extends AppCompatActivity {
 
                 if(pref.contains("pin")==false && pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
                     //System.out.println("AAA");
-                    Intent intent =new Intent(getApplicationContext(), PINCreateActivity2.class); // PIN 설정 화면으로 이동
+                    Intent intent =new Intent(getApplicationContext(), PINCreateActivity3.class); // PIN 설정 화면으로 이동
                     startActivity(intent);
                 } else {
-                    Intent intent =new Intent(getApplicationContext(), PINVerification.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
+                    Intent intent =new Intent(getApplicationContext(), PINVerification2.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
                     startActivity(intent);
                 }
             }
@@ -190,8 +190,9 @@ public class sign_up extends AppCompatActivity {
                         .show();
             }
         });
+    }
 
-
+    // 네트워크 오류 팝업창
     public void showDialog1() {
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -205,7 +206,6 @@ public class sign_up extends AppCompatActivity {
         dialog.setCancelable(false);
     }
 
-    }
     public void init() {
         // GSON 컨버터를 사용하는 REST 어댑터 생성
         retrofit = new Retrofit.Builder()

@@ -80,9 +80,6 @@ public class PINCheckActivity3 extends AppCompatActivity {
             numButtons[index].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    Log.d("test", "A");
-                    vibrator.vibrate(2000);
                     if(j>=0) {
                         //pin2[j] = Integer.parseInt(numButtons[index].getText().toString()); // pin2 배열에 사용자가 누른 버튼의 숫자 대입
                         pin2 = pin2 + numButtons[index].getText().toString();
@@ -106,7 +103,9 @@ public class PINCheckActivity3 extends AppCompatActivity {
                                 finish();
                             } else {    // pin을 잘못 입력한 경우
                                 // 틀릴 때마다 진동 울리기
-
+                                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                                Log.d("test", "A");
+                                vibrator.vibrate(300);
 
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
