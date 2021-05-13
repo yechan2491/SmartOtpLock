@@ -2,6 +2,7 @@ package com.cookandroid.smartotplock;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,9 +65,25 @@ public class fingerVerificationActivity extends AppCompatActivity {
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {  // 지문이 인식되었을 때
                 super.onAuthenticationSucceeded(result);
 
-                Intent intent = new Intent(getApplicationContext(), FingerPrintSuccess.class);  // 지문 성공 화면으로 이동
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(getApplicationContext(), FingerPrintSuccess.class);  // 지문 성공 화면으로 이동
+//                startActivity(intent);
+//                finish();
+
+                textView.setVisibility(View.VISIBLE);
+                textView.setText("인증이 완료되었습니다.");
+                fingerPrint.setImageResource(R.drawable.correct_finger_print);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 1000);
+
+
 
                 //Toast.makeText(getApplicationContext(), R.string.auth_success_message, Toast.LENGTH_SHORT).show();
             }
