@@ -1,10 +1,12 @@
 package com.cookandroid.smartotplock;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -78,6 +80,9 @@ public class PINCheckActivity3 extends AppCompatActivity {
             numButtons[index].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    Log.d("test", "A");
+                    vibrator.vibrate(2000);
                     if(j>=0) {
                         //pin2[j] = Integer.parseInt(numButtons[index].getText().toString()); // pin2 배열에 사용자가 누른 버튼의 숫자 대입
                         pin2 = pin2 + numButtons[index].getText().toString();
@@ -100,6 +105,9 @@ public class PINCheckActivity3 extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             } else {    // pin을 잘못 입력한 경우
+                                // 틀릴 때마다 진동 울리기
+
+
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override

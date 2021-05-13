@@ -15,7 +15,7 @@ public class terms2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.terms2);
 
-        backBtn=(ImageButton)findViewById(R.id.backBtn);
+        backBtn=(ImageButton)findViewById(R.id.backBtn);//
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

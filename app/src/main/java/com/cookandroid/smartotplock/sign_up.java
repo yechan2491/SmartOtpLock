@@ -1,8 +1,13 @@
 package com.cookandroid.smartotplock;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +21,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
@@ -38,6 +45,7 @@ public class sign_up extends AppCompatActivity {
     private View loginButton;
     Button loginBtn;
     SharedPreferences pref_firstRun, pref;
+    Dialog dialog;
     //private TextView nickName;
     //private ImageView profileImage;
 
@@ -51,11 +59,8 @@ public class sign_up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
 
-
-
-        sign_up_text=(TextView)findViewById(R.id.sign_up_text);
-
-        loginBtn=(Button)findViewById(R.id.textView2);
+        sign_up_text = (TextView) findViewById(R.id.sign_up_text);
+        loginBtn = (Button) findViewById(R.id.textView2);
         loginButton = findViewById(R.id.login);
 //        nickName=findViewById(R.id.nickname);
 //        profileImage=findViewById(R.id.profile);
@@ -63,6 +68,38 @@ public class sign_up extends AppCompatActivity {
 
         pref_firstRun = getSharedPreferences("FirstRun", MODE_PRIVATE);
         pref = getSharedPreferences("PREFS", MODE_PRIVATE);
+
+        // 인터넷 연결 되어있는지 확인하기
+        int status = NetworkStatus.getConnectivityStatus(getApplicationContext());
+        if ((status != NetworkStatus.TYPE_MOBILE) && (status != NetworkStatus.TYPE_WIFI)) {   // 3G, LTE, WIFI로 연결되지 않았을 경우(네트워크 연결 X)
+            //textView.setText("모바일로 연결됨");
+//            AlertDialog.Builder NoNetwork = new AlertDialog.Builder(this)
+//                    .setMessage("네트워크 상태가 원활하지 않습니다.\n연결 상태를 확인 후\n다시 시도해 주세요.")
+//                    .setPositiveButton("종료", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            finish();
+//                        }
+//                    })
+//                    .setCancelable(false);  // 뒤로가기 버튼으로 팝업창이 닫히지 않게 함
+//            AlertDialog msgDlg = NoNetwork.create();
+//            //msgDlg.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+//            msgDlg.setOnShowListener(new DialogInterface.OnShowListener() {
+//                @Override
+//                public void onShow(DialogInterface dialogInterface) {
+//                    msgDlg.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+//
+//                }
+//            });
+//            msgDlg.show();
+
+            dialog = new Dialog(sign_up.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.custom_dialog);
+
+            showDialog1();
+
+        }
 
 
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
@@ -155,6 +192,18 @@ public class sign_up extends AppCompatActivity {
         });
 
 
+    public void showDialog1() {
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Button exit = dialog.findViewById(R.id.exit);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        dialog.setCancelable(false);
+    }
 
     }
     public void init() {
