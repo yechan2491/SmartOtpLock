@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
         import android.view.View;
         import android.widget.Button;
         import android.widget.Toast;
-        import com.andrognito.patternlockview.utils.PatternLockUtils;
 
 
 public class setting extends AppCompatActivity {
@@ -34,7 +33,7 @@ public class setting extends AppCompatActivity {
                         SharedPreferences preferences = getSharedPreferences("PREFS", 0); // 저장된 값을 불러오기 위해 "PREFS"라는 네임파일을 찾음
                         String password = preferences.getString("password", "0"); // password라는 key에 저장된 값이 있는지 확인. 아무값도 들어있지 않으면 "0"을 반환
                         if(password.equals("0")) { // password라는 key에 값이 없을 경우 (패턴이 없을 경우)
-                            Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), patternCreateActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
@@ -57,7 +56,7 @@ public class setting extends AppCompatActivity {
                         if(password.equals("0")) {
                             Toast.makeText(getApplication(), "패턴을 생성해주세요.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Intent intent = new Intent(getApplicationContext(), CheckPasswordActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), patternCheckActivity.class);
                             startActivity(intent);
                             finish();
                         }

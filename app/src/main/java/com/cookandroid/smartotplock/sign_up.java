@@ -1,35 +1,25 @@
 package com.cookandroid.smartotplock;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
 //import com.kakao.sdk.template.model.Button;
 
-import java.util.HashMap;
 import java.util.List;
 
 import kotlin.Unit;
@@ -153,10 +143,10 @@ public class sign_up extends AppCompatActivity {
 
                 if(pref.contains("pin")==false && pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
                     //System.out.println("AAA");
-                    Intent intent =new Intent(getApplicationContext(), PINCreateActivity3.class); // PIN 설정 화면으로 이동
+                    Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
                     startActivity(intent);
                 } else {
-                    Intent intent =new Intent(getApplicationContext(), PINVerification.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
+                    Intent intent =new Intent(getApplicationContext(), passVerificationActivity.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
                     startActivity(intent);
                 }
             }

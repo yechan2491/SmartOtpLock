@@ -17,7 +17,7 @@ import com.andrognito.patternlockview.utils.PatternLockUtils;
 
 import java.util.List;
 
-public class CreatePasswordActivity extends AppCompatActivity {
+public class patternCreateActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
     TextView textPin, textFingerPrint, forgotPassword;
@@ -60,12 +60,12 @@ public class CreatePasswordActivity extends AppCompatActivity {
                     editor.putString("password", PatternLockUtils.patternToString(mPatternLockView, pattern));  // "password"라는 key에 패턴 저장
                     editor.apply();
 
-                    Intent intent = new Intent(getApplicationContext(), CheckPasswordActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), patternCheckActivity.class);
                     startActivity(intent);
                     finish();
 
                 } else {  // 4개 미만의 점이 연결되었을 경우
-                    Toast.makeText(CreatePasswordActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(patternCreateActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
                     mPatternLockView.clearPattern();
                 }
             }
@@ -80,7 +80,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
+                Intent intent = new Intent(getApplicationContext(), pinCheckActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -90,7 +90,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         textFingerPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FingerPrint.class);
+                Intent intent = new Intent(getApplicationContext(), fingerVerificationActivity.class);
                 startActivity(intent);
                 finish();
             }

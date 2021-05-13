@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
 
-public class FingerPrint extends AppCompatActivity {
+public class fingerVerificationActivity extends AppCompatActivity {
 
     private Executor executor;
     private BiometricPrompt biometricPrompt;
@@ -27,7 +27,7 @@ public class FingerPrint extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.finger_print);
+        setContentView(R.layout.finger_verification);
 
         textView = (TextView) findViewById(R.id.text2);
         textPattern = (TextView) findViewById(R.id.text5);
@@ -103,7 +103,7 @@ public class FingerPrint extends AppCompatActivity {
         textPattern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CheckPasswordActivity.class);
+                Intent intent = new Intent(getApplicationContext(), patternCheckActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -113,7 +113,7 @@ public class FingerPrint extends AppCompatActivity {
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
+                Intent intent = new Intent(getApplicationContext(), pinCheckActivity.class);
                 startActivity(intent);
                 finish();
             }

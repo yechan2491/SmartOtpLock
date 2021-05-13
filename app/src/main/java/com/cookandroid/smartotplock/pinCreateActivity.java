@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PINCreateActivity3 extends AppCompatActivity {
+public class pinCreateActivity extends AppCompatActivity {
     //int[] pin = {0, 0, 0, 0};
     String pin="";
 
@@ -31,7 +31,7 @@ public class PINCreateActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pin_create02);
+        setContentView(R.layout.pin_create);
 
         btnCancel = (Button) findViewById(R.id.btn_cancel);
         btnDelete = (ImageButton) findViewById(R.id.btn_delete);
@@ -84,7 +84,7 @@ public class PINCreateActivity3 extends AppCompatActivity {
                         editor.putString("pin", pin); // PIN이라는 key에 입력받은 pin 네자리 저장
                         editor.apply(); // editor 종료
 
-                        Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
+                        Intent intent = new Intent(getApplicationContext(), pinCheckActivity.class);
                         startActivity(intent);
                         finish(); // 현재 intent 종료
                     }

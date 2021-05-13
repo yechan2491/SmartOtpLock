@@ -41,6 +41,7 @@
         app:layout_constraintVertical_bias="0.401"
         app:layout_constraintWidth_percent="0.65" />
 
+
     <ImageView
         android:id="@+id/img1"
         android:layout_width="0dp"
@@ -97,6 +98,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.377"
         app:srcCompat="@drawable/graycircle" />
+
 
     <TextView
         android:id="@+id/text3"

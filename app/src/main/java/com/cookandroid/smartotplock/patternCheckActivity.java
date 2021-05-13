@@ -20,7 +20,7 @@ import com.andrognito.patternlockview.utils.PatternLockUtils;
 
 import java.util.List;
 
-public class CheckPasswordActivity extends AppCompatActivity {
+public class patternCheckActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
     String password;
@@ -71,7 +71,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
 
                         // 팝업창에서 인증방식 3개 중 1개 선택하기
                         final String[] versionArray = new String[] {"지문", "PIN", "패턴"};
-                        AlertDialog.Builder dlg = new AlertDialog.Builder(CheckPasswordActivity.this);
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(patternCheckActivity.this);
                         dlg.setTitle("인증수단 선택");
 
                         dlg.setItems(versionArray, new DialogInterface.OnClickListener() {
@@ -89,7 +89,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
                         if(count>=1 && count<3) {
                             errorMessage.setVisibility(View.VISIBLE);
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
-                            Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(patternCheckActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
@@ -103,7 +103,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
                             errorMessage.setVisibility(View.VISIBLE);
                             errorMessage.setText("5회 이상 틀릴 시 본인인증이 필요합니다.");
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
-                            Toast.makeText(CheckPasswordActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(patternCheckActivity.this, count + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
@@ -117,14 +117,14 @@ public class CheckPasswordActivity extends AppCompatActivity {
                             errorMessage.setVisibility(View.VISIBLE);
                             errorMessage.setText("본인인증 화면으로 넘어갑니다.");
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
-                            Toast.makeText(CheckPasswordActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(patternCheckActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), Verification.class);
                             startActivity(intent);
                             finish();
                         }
                     }
                 } else {  // 4개 미만의 점이 연결되었을 경우
-                    Toast.makeText(CheckPasswordActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(patternCheckActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
                     mPatternLockView.clearPattern();
                 }
 
@@ -141,7 +141,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCheckActivity3.class);
+                Intent intent = new Intent(getApplicationContext(), pinCheckActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -151,7 +151,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
         textFingerPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FingerPrint.class);
+                Intent intent = new Intent(getApplicationContext(), fingerVerificationActivity.class);
                 startActivity(intent);
                 finish();
             }

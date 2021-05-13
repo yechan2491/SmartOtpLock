@@ -35,20 +35,20 @@
         <activity android:name=".create_id3" />
         <activity android:name=".create_id3_blockchain" />
         <activity android:name=".setting"/>
-        <activity android:name=".CreatePasswordActivity"/>
-        <activity android:name=".CheckPasswordActivity"/>
+        <activity android:name=".patternCreateActivity"/>
+        <activity android:name=".patternCheckActivity"/>
         <activity android:name=".ChangePasswordActivity"/>
         <activity android:name=".ProgramActivity"/>
-        <activity android:name=".PINCreateActivity3" />
-        <activity android:name=".PINCheckActivity3" />
+        <activity android:name=".pinCreateActivity" />
+        <activity android:name=".pinCheckActivity" />
         <activity android:name=".NextActivity"/>
-        <activity android:name=".FingerPrint" />
+        <activity android:name=".fingerVerificationActivity" />
         <activity android:name=".FingerPrintSuccess" />
         <activity android:name=".Verification" />
         <activity android:name=".PinForgot" />
         <activity android:name=".PatternForgot" />
-        <activity android:name=".PINVerification" />
-        <activity android:name=".PINVerification2" />
+        <activity android:name=".passVerificationActivity" />
+        <activity android:name=".pinVerificationActivity" />
         <activity android:name=".otp_check"/>
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">

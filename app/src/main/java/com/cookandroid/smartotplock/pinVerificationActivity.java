@@ -1,12 +1,10 @@
 package com.cookandroid.smartotplock;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PINCheckActivity3 extends AppCompatActivity {
+public class pinVerificationActivity extends AppCompatActivity {
 
     String pincheck;
     String pin2 = "";
@@ -39,7 +37,7 @@ public class PINCheckActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pin_check02);
+        setContentView(R.layout.pin_verification);
 
         btnCancel = (Button) findViewById(R.id.btn_cancel);
         btnDelete = (ImageButton) findViewById(R.id.btn_delete);
@@ -98,15 +96,10 @@ public class PINCheckActivity3 extends AppCompatActivity {
                             j=0;
 
                             if (pincheck.equals(pin2)) {    // 처음 설정한 pin이 저장된 pincheck와 입력한 4자리 수가 같을 경우
-                                Intent intent = new Intent(getApplicationContext(), CreatePasswordActivity.class);  // 패턴 설정 화면으로 이동
+                                Intent intent = new Intent(getApplicationContext(), NextActivity.class);  // next 화면으로 이동
                                 startActivity(intent);
                                 finish();
                             } else {    // pin을 잘못 입력한 경우
-                                // 틀릴 때마다 진동 울리기
-                                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                                Log.d("test", "A");
-                                vibrator.vibrate(500);
-
                                 Handler handler = new Handler();
                                 handler.postDelayed(new Runnable() {
                                     @Override

@@ -77,7 +77,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         textPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PINCreateActivity3.class);
+                Intent intent = new Intent(getApplicationContext(), pinCreateActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -87,7 +87,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         textFingerPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FingerPrint.class);
+                Intent intent = new Intent(getApplicationContext(), fingerVerificationActivity.class);
                 startActivity(intent);
                 finish();
             }
