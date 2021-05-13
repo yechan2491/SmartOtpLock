@@ -78,7 +78,7 @@ public class patternCheckActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
                                 startActivity(intent);
                                 finish();
                             }

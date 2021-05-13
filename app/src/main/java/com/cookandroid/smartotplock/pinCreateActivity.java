@@ -95,7 +95,7 @@ public class pinCreateActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), sign_up.class);
+                Intent intent = new Intent(getApplicationContext(), signUpActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class intro01 extends AppCompatActivity {
+public class intro01Activity extends AppCompatActivity {
     ImageButton intro01ImgBtn01;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class intro01 extends AppCompatActivity {
         intro01ImgBtn01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), intro02.class);
+                Intent intent =new Intent(getApplicationContext(), intro02Activity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.in_right,R.anim.out_left);
 

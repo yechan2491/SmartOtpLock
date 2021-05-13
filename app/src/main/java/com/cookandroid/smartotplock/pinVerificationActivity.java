@@ -96,7 +96,7 @@ public class pinVerificationActivity extends AppCompatActivity {
                             j=0;
 
                             if (pincheck.equals(pin2)) {    // 처음 설정한 pin이 저장된 pincheck와 입력한 4자리 수가 같을 경우
-                                Intent intent = new Intent(getApplicationContext(), NextActivity.class);  // next 화면으로 이동
+                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);  // next 화면으로 이동
                                 startActivity(intent);
                                 finish();
                             } else {    // pin을 잘못 입력한 경우
@@ -145,7 +145,7 @@ public class pinVerificationActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), sign_up.class);
+                Intent intent = new Intent(getApplicationContext(), signUpActivity.class);
                 startActivity(intent);
                 finish();
             }

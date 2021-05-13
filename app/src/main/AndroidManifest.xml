@@ -15,25 +15,25 @@
         android:theme="@style/Theme.Design.NoActionBar"
         android:name=".KakaoApplication">
 
-        <activity android:name=".loading">
+        <activity android:name=".loadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".intro01"/>
-        <activity android:name=".intro02"/>
-        <activity android:name=".sign_up" />
-        <activity android:name=".create_id1"/>
-        <activity android:name=".service_terms"/>
-        <activity android:name=".terms1"/>
-        <activity android:name=".terms2"/>
-        <activity android:name=".terms3"/>
-        <activity android:name=".terms4"/>
-        <activity android:name=".terms5"/>
-        <activity android:name=".create_id2"/>
-        <activity android:name=".create_id3" />
-        <activity android:name=".create_id3_blockchain" />
+        <activity android:name=".intro01Activity"/>
+        <activity android:name=".intro02Activity"/>
+        <activity android:name=".signUpActivity" />
+        <activity android:name=".createId01Activity"/>
+        <activity android:name=".serviceTermsActivity"/>
+        <activity android:name=".terms1Activity"/>
+        <activity android:name=".terms2Activity"/>
+        <activity android:name=".terms3Activity"/>
+        <activity android:name=".terms4Activity"/>
+        <activity android:name=".terms5Activity"/>
+        <activity android:name=".createId02Activity"/>
+        <activity android:name=".createId03Activity" />
+        <activity android:name=".createId03BlockchainActivity" />
         <activity android:name=".setting"/>
         <activity android:name=".patternCreateActivity"/>
         <activity android:name=".patternCheckActivity"/>
@@ -41,7 +41,7 @@
         <activity android:name=".ProgramActivity"/>
         <activity android:name=".pinCreateActivity" />
         <activity android:name=".pinCheckActivity" />
-        <activity android:name=".NextActivity"/>
+        <activity android:name=".userPageActivity"/>
         <activity android:name=".fingerVerificationActivity" />
         <activity android:name=".FingerPrintSuccess" />
         <activity android:name=".Verification" />
@@ -49,7 +49,7 @@
         <activity android:name=".PatternForgot" />
         <activity android:name=".passVerificationActivity" />
         <activity android:name=".pinVerificationActivity" />
-        <activity android:name=".otp_check"/>
+        <activity android:name=".otpCheckActivity"/>
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>

@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class create_id3_blockchain extends AppCompatActivity {
+public class createId03BlockchainActivity extends AppCompatActivity {
     ImageButton backBtn;
     TextView warningText1;
     EditText phoneText;
@@ -35,7 +35,7 @@ public class create_id3_blockchain extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),otp_check.class);
+                Intent intent=new Intent(getApplicationContext(), otpCheckActivity.class);
                 startActivity(intent);
             }
         });

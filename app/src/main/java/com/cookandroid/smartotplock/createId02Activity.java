@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class create_id2 extends AppCompatActivity {
+public class createId02Activity extends AppCompatActivity {
     ImageButton backBtn;
     Button nextBtn;
 
@@ -164,7 +164,7 @@ public class create_id2 extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), create_id3.class);
+                Intent intent =new Intent(getApplicationContext(), createId03Activity.class);
                 startActivity(intent);
             }
         });

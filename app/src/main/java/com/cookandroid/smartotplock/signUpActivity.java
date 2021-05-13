@@ -30,7 +30,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class sign_up extends AppCompatActivity {
+public class signUpActivity extends AppCompatActivity {
     TextView sign_up_text;
     private View loginButton;
     Button loginBtn;
@@ -83,7 +83,7 @@ public class sign_up extends AppCompatActivity {
 //            });
 //            msgDlg.show();
 
-            dialog = new Dialog(sign_up.this);
+            dialog = new Dialog(signUpActivity.this);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.custom_dialog);
 
@@ -109,11 +109,11 @@ public class sign_up extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(LoginClient.getInstance().isKakaoTalkLoginAvailable(sign_up.this)){
-                    LoginClient.getInstance().loginWithKakaoTalk(sign_up.this, callback);
+                if(LoginClient.getInstance().isKakaoTalkLoginAvailable(signUpActivity.this)){
+                    LoginClient.getInstance().loginWithKakaoTalk(signUpActivity.this, callback);
                 }
                 else {
-                    LoginClient.getInstance().loginWithKakaoAccount(sign_up.this,callback);
+                    LoginClient.getInstance().loginWithKakaoAccount(signUpActivity.this,callback);
                 }
             }
         });
@@ -121,7 +121,7 @@ public class sign_up extends AppCompatActivity {
         sign_up_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), create_id1.class);
+                Intent intent =new Intent(getApplicationContext(), createId01Activity.class);
                 startActivity(intent);
             }
         });
@@ -176,7 +176,7 @@ public class sign_up extends AppCompatActivity {
             @Override
             // 실패시
             public void onFailure(Call<List<Contributor>> call, Throwable t) {
-                Toast.makeText(sign_up.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                Toast.makeText(signUpActivity.this, "정보받아오기 실패", Toast.LENGTH_LONG)
                         .show();
             }
         });

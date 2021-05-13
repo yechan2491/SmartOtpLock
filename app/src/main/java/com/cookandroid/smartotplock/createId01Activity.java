@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class create_id1 extends AppCompatActivity { // commit first test
+public class createId01Activity extends AppCompatActivity { // commit first test
     ImageButton backBtn; //yechan - test commit2
     Button nextBtn;  //lee  //test2
 
@@ -233,7 +233,7 @@ public class create_id1 extends AppCompatActivity { // commit first test
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), service_terms.class);
+                Intent intent =new Intent(getApplicationContext(), serviceTermsActivity.class);
                 startActivity(intent);
             }
         });

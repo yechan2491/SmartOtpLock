@@ -1,17 +1,14 @@
 package com.cookandroid.smartotplock;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class intro02 extends AppCompatActivity {
+public class intro02Activity extends AppCompatActivity {
     ImageButton intro02ImgBtn01;
 
     @Override
@@ -30,7 +27,7 @@ public class intro02 extends AppCompatActivity {
         intro02ImgBtn01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), sign_up.class);
+                Intent intent =new Intent(getApplicationContext(), signUpActivity.class);
                 startActivity(intent);
             }
         });

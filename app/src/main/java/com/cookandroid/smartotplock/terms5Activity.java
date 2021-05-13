@@ -7,15 +7,14 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class terms2 extends AppCompatActivity {
-
+public class terms5Activity extends AppCompatActivity {
     ImageButton backBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.terms2);
+        setContentView(R.layout.terms5);
 
-        backBtn=(ImageButton)findViewById(R.id.backBtn);//
+        backBtn=(ImageButton)findViewById(R.id.backBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

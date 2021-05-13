@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class terms3 extends AppCompatActivity {
+public class terms3Activity extends AppCompatActivity {
     ImageButton backBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

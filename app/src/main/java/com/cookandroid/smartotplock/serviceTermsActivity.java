@@ -5,14 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -20,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class service_terms extends AppCompatActivity {
+public class serviceTermsActivity extends AppCompatActivity {
     ImageButton backBtn; //뒤로가기 버튼
     Button nextBtn;    // 다음버튼
     Boolean nextBtn_check=false;
@@ -120,7 +118,7 @@ public class service_terms extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() { //다음 버튼 눌렀을때 다음 인텐트 호출
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), create_id2.class);
+                Intent intent =new Intent(getApplicationContext(), createId02Activity.class);
                 if(nextBtn_check) startActivity(intent);
             }
         });
@@ -133,23 +131,23 @@ public class service_terms extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if(index==0){
-                        Intent intent =new Intent(getApplicationContext(), terms1.class);
+                        Intent intent =new Intent(getApplicationContext(), terms1Activity.class);
                         startActivity(intent);
                     }
                     else if(index==1){
-                        Intent intent =new Intent(getApplicationContext(), terms2.class);
+                        Intent intent =new Intent(getApplicationContext(), terms2Activity.class);
                         startActivity(intent);
                     }
                     else if(index==2){
-                        Intent intent =new Intent(getApplicationContext(), terms3.class);
+                        Intent intent =new Intent(getApplicationContext(), terms3Activity.class);
                         startActivity(intent);
                     }
                     else if(index==3){
-                        Intent intent =new Intent(getApplicationContext(), terms4.class);
+                        Intent intent =new Intent(getApplicationContext(), terms4Activity.class);
                         startActivity(intent);
                     }
                     else if(index==4){
-                        Intent intent =new Intent(getApplicationContext(), terms5.class);
+                        Intent intent =new Intent(getApplicationContext(), terms5Activity.class);
                         startActivity(intent);
                     }
                 }
