@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
-        android:text="패턴을 다시 그려주세요."
+        android:text="패턴을 그려주세요."
         android:textColor="#191919"
         android:textSize="48px"
         app:layout_constraintBottom_toTopOf="@+id/pattern_lock_view"

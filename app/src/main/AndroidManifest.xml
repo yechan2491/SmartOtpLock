@@ -50,6 +50,7 @@
         <activity android:name=".passVerificationActivity" />
         <activity android:name=".pinVerificationActivity" />
         <activity android:name=".otp_check"/>
+        <activity android:name=".patternVerification" />
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
