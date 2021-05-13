@@ -36,7 +36,7 @@
         <activity android:name=".createId03BlockchainActivity" />
         <activity android:name=".patternCreateActivity"/>
         <activity android:name=".patternCheckActivity"/>
-        <activity android:name=".ChangePasswordActivity"/>
+        <activity android:name=".patternChangeActivity"/>
         <activity android:name=".pinCreateActivity" />
         <activity android:name=".pinCheckActivity" />
         <activity android:name=".userPageActivity"/>
@@ -48,6 +48,7 @@
         <activity android:name=".pinVerificationActivity" />
         <activity android:name=".otpCheckActivity"/>
         <activity android:name=".patternVerification" />
+        <activity android:name=".patternMatchActivity" />
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>

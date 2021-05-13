@@ -27,7 +27,6 @@
         android:text="종료"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/noto_sans_cjkkr_medium"
-        android:layout_gravity="right"
-        android:background="#1C68FF"/>
+        android:background="@drawable/solid_button2"/>
 
 </LinearLayout>

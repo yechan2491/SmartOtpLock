@@ -14,7 +14,7 @@ import com.andrognito.patternlockview.listener.PatternLockViewListener;
 import com.andrognito.patternlockview.utils.PatternLockUtils;
 import java.util.List;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class patternChangeActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
     TextView textPin, textFingerPrint, forgotPassword;
@@ -22,7 +22,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.pattern_change);
 
         textPin = (TextView) findViewById(R.id.text5);
         textFingerPrint = (TextView) findViewById(R.id.text6);
@@ -62,7 +62,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     finish();
 
                 } else {  // 4개 미만의 점이 연결되었을 경우
-                    Toast.makeText(ChangePasswordActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(patternChangeActivity.this, "4개 이상의 점을 연결해주세요.", Toast.LENGTH_SHORT).show();
                     mPatternLockView.clearPattern();
                 }
             }
