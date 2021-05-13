@@ -77,7 +77,7 @@ public class fingerVerificationActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -106,7 +106,7 @@ public class fingerVerificationActivity extends AppCompatActivity {
                 if (i==5) {
                     textView.setVisibility(View.VISIBLE);
                     textView.setText("본인인증 화면으로 넘어갑니다.");
-                    Intent intent = new Intent(getApplicationContext(), Verification.class);
+                    Intent intent = new Intent(getApplicationContext(), myVerificationActivity.class);
                     startActivity(intent);
                     finish();
                     i=0;

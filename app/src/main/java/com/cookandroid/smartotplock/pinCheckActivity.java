@@ -136,7 +136,7 @@ public class pinCheckActivity extends AppCompatActivity {
                                     textViews[1].setVisibility(View.VISIBLE);
                                     textViews[1].setText("본인인증 화면으로 넘어갑니다.");
                                     Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), Verification.class);
+                                    Intent intent = new Intent(getApplicationContext(), myVerificationActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

@@ -118,7 +118,7 @@ public class patternCheckActivity extends AppCompatActivity {
                             errorMessage.setText("본인인증 화면으로 넘어갑니다.");
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
                             Toast.makeText(patternCheckActivity.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), Verification.class);
+                            Intent intent = new Intent(getApplicationContext(), myVerificationActivity.class);
                             startActivity(intent);
                             finish();
                         }

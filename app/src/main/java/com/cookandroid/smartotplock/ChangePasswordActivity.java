@@ -57,7 +57,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     editor.putString("password", PatternLockUtils.patternToString(mPatternLockView, pattern));  // "password"라는 key에 패턴 저장
                     editor.apply();
 
-                    Intent intent = new Intent(getApplicationContext(), ProgramActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
                     startActivity(intent);
                     finish();
 

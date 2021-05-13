@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class userPageActivity extends AppCompatActivity {
 
-    Button otpBtn;
+    Button otpBtn,logoutBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,5 +25,19 @@ public class userPageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        logoutBtn=(Button)findViewById(R.id.logoutBtn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(), signUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        onBackPressed();
+
+    }
+    @Override
+    public void onBackPressed(){   // 뒤로가기 버튼 막기
+
     }
 }

@@ -6,6 +6,7 @@ import android.os.Build;
 import androidx.core.content.ContextCompat;
 
 /***상태바의 색상을 바꾸기 위한 자바파일****/
+//otp_check.xml에서 사용함
 public class utils {
     public enum StatusBarColorType{
         BLACK_STATUS_BAR( R.color.black ),

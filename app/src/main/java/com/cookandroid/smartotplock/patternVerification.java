@@ -1,6 +1,5 @@
 package com.cookandroid.smartotplock;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.andrognito.patternlockview.PatternLockView;
@@ -85,7 +83,7 @@ public class patternVerification extends AppCompatActivity {
 //                        });
 //                        dlg.show();
 
-                        Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
                         startActivity(intent);
                         finish();
 
@@ -123,7 +121,7 @@ public class patternVerification extends AppCompatActivity {
                             errorMessage.setText("본인인증 화면으로 넘어갑니다.");
                             mPatternLockView.setViewMode(PatternLockView.PatternViewMode.WRONG);
                             Toast.makeText(patternVerification.this, "5회 이상 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), Verification.class);
+                            Intent intent = new Intent(getApplicationContext(), myVerificationActivity.class);
                             startActivity(intent);
                             finish();
                         }
