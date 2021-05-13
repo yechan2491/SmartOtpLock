@@ -16,7 +16,6 @@ import com.andrognito.patternlockview.listener.PatternLockViewListener;
 import com.andrognito.patternlockview.utils.PatternLockUtils;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class CreatePasswordActivity extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_password);
+        setContentView(R.layout.pattern_create);
 
         textPin = (TextView) findViewById(R.id.text5);
         textFingerPrint = (TextView) findViewById(R.id.text6);

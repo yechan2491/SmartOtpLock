@@ -1,5 +1,6 @@
 package com.cookandroid.smartotplock;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,13 +20,25 @@ public class create_id3_blockchain extends AppCompatActivity {
     ImageButton backBtn;
     TextView warningText1;
     EditText phoneText;
+    Button nextBtn;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_id3_blockchain);
+        setContentView(R.layout.create_id03_blockchain);
         backBtn=findViewById(R.id.backBtn);
         warningText1=(TextView)findViewById(R.id.warningText1);
         phoneText=(EditText)findViewById(R.id.phoneText);
+
+
+        nextBtn=(Button)findViewById(R.id.nextBtn);
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),otp_check.class);
+                startActivity(intent);
+            }
+        });
 
         /***phoneText 이벤트처리***/
         phoneText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -108,4 +122,7 @@ public class create_id3_blockchain extends AppCompatActivity {
         return false; // 영문, 숫자만 있을 경우  false 리턴
     }
     /////////////////////////////////////////////////////////////////////
+
+
+
 }

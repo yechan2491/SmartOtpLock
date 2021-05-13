@@ -10,6 +10,6 @@ public class NextActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.next);
+        setContentView(R.layout.user_page);
     }
 }

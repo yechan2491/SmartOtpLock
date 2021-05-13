@@ -25,7 +25,7 @@ public class create_id3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_id3);
+        setContentView(R.layout.create_id03);
 
         backBtn=(ImageButton)findViewById(R.id.backBtn);
         nextBtn=(Button)findViewById(R.id.nextBtn);

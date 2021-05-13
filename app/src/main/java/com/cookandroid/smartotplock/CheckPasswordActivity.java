@@ -30,7 +30,7 @@ public class CheckPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_password);
+        setContentView(R.layout.pattern_check);
 
         textPin = (TextView) findViewById(R.id.text5);
         textFingerPrint = (TextView) findViewById(R.id.text6);

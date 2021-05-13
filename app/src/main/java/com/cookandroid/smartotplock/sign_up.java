@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +41,8 @@ public class sign_up extends AppCompatActivity {
     //private TextView nickName;
     //private ImageView profileImage;
 
+    private Retrofit retrofit;
+    private final String BASE_URL = "https://api.github.com";
     private EditText idEditText,pwEditText;
 
 
@@ -122,65 +125,45 @@ public class sign_up extends AppCompatActivity {
             }
         });
 
-        //////////////여기부터 레트로핏 관련 코드//////////////////////////////
-        idEditText=(EditText)findViewById(R.id.idEditText);
-        pwEditText=(EditText)findViewById(R.id.pwEditText);
 
-        Retrofit retrofit =new Retrofit.Builder()
-                .baseUrl("http://jsonplaceholder.typicode.com") //여기는 서버 URL 정의
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        RetrofitAPI retrofitAPI =retrofit.create(RetrofitAPI.class);
-
-        HashMap<String, Object> input =new HashMap<>();
-        input.put("userId",1);
-        input.put("title","title title");
-        input.put("body","body body 당근 당근");
-
-        retrofitAPI.postData(input).enqueue(new Callback<Post>() {
+        ///////////////////////////여기서부터 레트로핏
+        idEditText=(EditText)findViewById(R.id.idEditText) ;
+        init();
+        GitHub gitHub = retrofit.create(GitHub.class);
+        // 인터페이스에 구현한 메소드인 contributors에 param 값을 넘기는 요청 만든다.
+        Call<List<Contributor>> call = gitHub.contributors("square", "retrofit");
+        // 앞서만든 요청을 수행
+        call.enqueue(new Callback<List<Contributor>>() {
             @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                if(response.isSuccessful()){
-                    Post data=response.body();
-                    Log.d("TEST","POST 성공성공");
-                    Log.d("TEST",data.getBody());
-                }
+            // 성공시
+            public void onResponse(Call<List<Contributor>> call, Response<List<Contributor>> response) {
+                List<Contributor> contributors = response.body();
+                // 받아온 리스트를 순회하면서
+
+                idEditText.setText(contributors.get(0).login);
+//                for (Contributor contributor : contributors) {
+//                    // 텍스트 뷰에 login 정보를 붙임
+//                    textView.append(contributor.login);
+//                }
             }
-
             @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-
+            // 실패시
+            public void onFailure(Call<List<Contributor>> call, Throwable t) {
+                Toast.makeText(sign_up.this, "정보받아오기 실패", Toast.LENGTH_LONG)
+                        .show();
             }
         });
-
-
-        retrofitAPI.getData("1").enqueue( new Callback<List<Post>>(){    //id 1에 대한 행 정보 다 가져온다고 생각하면됨
-            @Override
-            public void onResponse(@NonNull Call<List<Post>> call, @NonNull Response<List<Post>> response) {
-                if(response.isSuccessful()){
-                    List<Post> data=response.body();
-                    Log.d("TEST","성공성공");
-                    Log.d("TEST",data.get(0).getTitle());   // 가져온 행에 정보중에서 "title" 정보출력
-                    idEditText.setText(data.get(0).getTitle());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-
-
-
-
 
 
 
     }
-
+    public void init() {
+        // GSON 컨버터를 사용하는 REST 어댑터 생성
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
 //    private void updateKakaoLoginUi(){
 //        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {

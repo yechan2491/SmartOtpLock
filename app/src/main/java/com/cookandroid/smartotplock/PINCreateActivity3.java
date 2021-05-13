@@ -31,7 +31,7 @@ public class PINCreateActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pincreate3);
+        setContentView(R.layout.pin_create02);
 
         btnCancel = (Button) findViewById(R.id.btn_cancel);
         btnDelete = (ImageButton) findViewById(R.id.btn_delete);

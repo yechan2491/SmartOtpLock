@@ -1,22 +1,14 @@
 package com.cookandroid.smartotplock;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.text.Html;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class PINCreateActivity2 extends AppCompatActivity {
 
@@ -30,7 +22,7 @@ public class PINCreateActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pincreate2);
+        setContentView(R.layout.pin_create01);
 
         for(i=0; i<imageViews.length; i++) {
             imageViews[i] = (ImageView) findViewById(numImageIDs[i]);

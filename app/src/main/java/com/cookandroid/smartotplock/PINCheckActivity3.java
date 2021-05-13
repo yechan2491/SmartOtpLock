@@ -37,7 +37,7 @@ public class PINCheckActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pincheck3);
+        setContentView(R.layout.pin_check02);
 
         btnCancel = (Button) findViewById(R.id.btn_cancel);
         btnDelete = (ImageButton) findViewById(R.id.btn_delete);
