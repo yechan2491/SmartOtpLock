@@ -78,14 +78,16 @@ public class userPageActivity extends AppCompatActivity {
             }
         });
 
-        changePin.setOnClickListener(new View.OnClickListener() {
+        changePin.setOnClickListener(new View.OnClickListener() {  // PIN 수정
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), pinMatchActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
-        changePattern.setOnClickListener(new View.OnClickListener() {
+        changePattern.setOnClickListener(new View.OnClickListener() {  // 패턴 수정
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), patternMatchActivity.class);
