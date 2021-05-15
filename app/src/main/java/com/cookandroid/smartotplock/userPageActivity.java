@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class userPageActivity extends AppCompatActivity {
 
-
+    LinearLayout linearLayout;
     Button settingBtn, create_OTP, regist_key, change_verification, logoutBtn2, otpBtn,logoutBtn, securityChangeBtn;
     Dialog dialog;
     private DrawerLayout drawerLayout;
@@ -32,14 +33,22 @@ public class userPageActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerView = (View) findViewById(R.id.drawer);
 
-        // 설정
-        settingBtn = (Button) findViewById(R.id.settingBtn);
-        settingBtn.setOnClickListener(new View.OnClickListener() {
+        linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawerLayout.openDrawer(drawerView);
             }
         });
+
+        // 설정
+//        settingBtn = (Button) findViewById(R.id.settingBtn);
+//        settingBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                drawerLayout.openDrawer(drawerView);
+//            }
+//        });
 
         // OTP 생성
         create_OTP = (Button) findViewById(R.id.create_OTP);
