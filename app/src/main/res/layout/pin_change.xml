@@ -127,6 +127,7 @@
                 android:layout_weight="1"
                 android:text="1"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_2"
@@ -135,6 +136,7 @@
                 android:layout_weight="1"
                 android:text="2"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_3"
@@ -143,6 +145,7 @@
                 android:layout_weight="1"
                 android:text="3"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
         </TableRow>
 
@@ -156,6 +159,7 @@
                 android:layout_weight="1"
                 android:text="4"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_5"
@@ -164,6 +168,7 @@
                 android:layout_weight="1"
                 android:text="5"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_6"
@@ -172,6 +177,7 @@
                 android:layout_weight="1"
                 android:text="6"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
         </TableRow>
 
@@ -185,6 +191,7 @@
                 android:layout_weight="1"
                 android:text="7"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_8"
@@ -193,6 +200,7 @@
                 android:layout_weight="1"
                 android:text="8"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_9"
@@ -201,6 +209,7 @@
                 android:layout_weight="1"
                 android:text="9"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
         </TableRow>
 
@@ -214,6 +223,7 @@
                 android:layout_weight="1"
                 android:text="취소"
                 android:textSize="15dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <Button
                 android:id="@+id/btn_0"
@@ -222,13 +232,18 @@
                 android:layout_weight="1"
                 android:text="0"
                 android:textSize="20dp"
+                android:textColor="@drawable/selector_text"
                 android:background="#00ff0000" />
             <ImageButton
                 android:id="@+id/btn_delete"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="20dp"
+                android:layout_height="15dp"
                 android:layout_weight="1"
-                android:src="@drawable/delete"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/selector_delete"
+                android:scaleType="fitCenter"
                 android:background="#00ff0000" />
         </TableRow>
     </TableLayout>
