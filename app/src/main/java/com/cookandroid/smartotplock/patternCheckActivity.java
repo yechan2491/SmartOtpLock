@@ -25,25 +25,12 @@ public class patternCheckActivity extends AppCompatActivity {
     PatternLockView mPatternLockView;
     String password;
     int count = 0;
-    TextView textPin, textFingerPrint, forgotPassword, errorMessage;
+    TextView errorMessage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pattern_check);
-
-        textPin = (TextView) findViewById(R.id.text5);
-        textFingerPrint = (TextView) findViewById(R.id.text6);
-        forgotPassword = (TextView) findViewById(R.id.text2);
-        forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "패턴을 잊으셨나요?"에 밑줄긋기
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PatternForgot.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         errorMessage = (TextView) findViewById(R.id.errorMessage);
         errorMessage.setVisibility(View.INVISIBLE);
@@ -68,22 +55,6 @@ public class patternCheckActivity extends AppCompatActivity {
                 if(PatternLockUtils.patternToString(mPatternLockView, pattern).length() >= 4) {  // 4개 이상의 점이 연결되었을 경우
                     if(password.equals(PatternLockUtils.patternToString(mPatternLockView, pattern))) {
                         mPatternLockView.setViewMode(PatternLockView.PatternViewMode.CORRECT);
-
-                        // 팝업창에서 인증방식 3개 중 1개 선택하기
-//                        final String[] versionArray = new String[] {"지문", "PIN", "패턴"};
-//                        AlertDialog.Builder dlg = new AlertDialog.Builder(patternCheckActivity.this);
-//                        dlg.setTitle("인증수단 선택");
-//
-//                        dlg.setItems(versionArray, new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                Toast.makeText(getApplicationContext(), versionArray[which] + "(으)로 선택되었습니다.", Toast.LENGTH_SHORT).show();
-//                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
-//                                startActivity(intent);
-//                                finish();
-//                            }
-//                        });
-//                        dlg.show();
 
                         Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
                         startActivity(intent);
@@ -139,26 +110,6 @@ public class patternCheckActivity extends AppCompatActivity {
             @Override
             public void onCleared() {
 
-            }
-        });
-
-        // 다른 인증방식 선택 - PIN 눌렀을 경우
-        textPin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), pinCheckActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        // 다른 인증방식 선택 - 지문 눌렀을 경우
-        textFingerPrint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), fingerVerificationActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
     }

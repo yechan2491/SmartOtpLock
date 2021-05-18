@@ -29,8 +29,7 @@ public class pinCheckActivity extends AppCompatActivity {
     ImageButton btnDelete;
     Button[] numButtons = new Button[10];
     Integer[] numBtnIDs = {R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9};
-    TextView[] textViews = new TextView[6];
-    Integer[] textViewsID = {R.id.text1, R.id.text2, R.id.text3, R.id.text4, R.id.text5, R.id.text6};
+    TextView text;
 
     int i=0, j=0, count=0, wrongCount=0, deleteCount=0;
 
@@ -52,20 +51,8 @@ public class pinCheckActivity extends AppCompatActivity {
             numButtons[i] = (Button) findViewById(numBtnIDs[i]);
         }
 
-        for(i=0; i<textViews.length; i++) {
-            textViews[i] = (TextView) findViewById(textViewsID[i]);
-        }
-
-        textViews[1].setVisibility(View.INVISIBLE);
-        textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
-        textViews[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PinForgot.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        text = (TextView) findViewById(R.id.text);
+        text.setVisibility(View.INVISIBLE);
 
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         //pincheck = preferences.getInt("pin", 0);
@@ -123,18 +110,18 @@ public class pinCheckActivity extends AppCompatActivity {
 
                                 wrongCount++;    // 틀린 횟수 증가
                                 if (wrongCount>=1 && wrongCount<3) {
-                                    textViews[1].setVisibility(View.VISIBLE);
+                                    text.setVisibility(View.VISIBLE);
                                     Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                                 }
                                 if (wrongCount>=3 && wrongCount<5){
-                                    textViews[1].setVisibility(View.VISIBLE);
-                                    textViews[1].setText("5회 이상 틀릴 시 본인인증이 필요합니다.");
+                                    text.setVisibility(View.VISIBLE);
+                                    text.setText("5회 이상 틀릴 시 본인인증이 필요합니다.");
                                     Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                                 }
 
                                 if (wrongCount==5) {
-                                    textViews[1].setVisibility(View.VISIBLE);
-                                    textViews[1].setText("본인인증 화면으로 넘어갑니다.");
+                                    text.setVisibility(View.VISIBLE);
+                                    text.setText("본인인증 화면으로 넘어갑니다.");
                                     Toast.makeText(getApplication(), wrongCount + "회 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), myVerificationActivity.class);
                                     startActivity(intent);

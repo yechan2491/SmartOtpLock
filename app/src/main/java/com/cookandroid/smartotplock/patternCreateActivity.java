@@ -20,25 +20,11 @@ import java.util.List;
 public class patternCreateActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
-    TextView textPin, textFingerPrint, forgotPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pattern_create);
-
-        textPin = (TextView) findViewById(R.id.text5);
-        textFingerPrint = (TextView) findViewById(R.id.text6);
-        forgotPassword = (TextView) findViewById(R.id.text2);
-        forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "패턴을 잊으셨나요?"에 밑줄긋기
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PatternForgot.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         mPatternLockView = (PatternLockView) findViewById(R.id.pattern_lock_view);
         mPatternLockView.addPatternLockListener(new PatternLockViewListener() {
@@ -73,26 +59,6 @@ public class patternCreateActivity extends AppCompatActivity {
             @Override
             public void onCleared() {
 
-            }
-        });
-
-        // 다른 인증방식 선택 - PIN 눌렀을 경우
-        textPin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), pinCheckActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        // 다른 인증방식 선택 - 지문 눌렀을 경우
-        textFingerPrint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), fingerVerificationActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
     }

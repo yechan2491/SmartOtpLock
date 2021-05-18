@@ -23,8 +23,6 @@ public class pinCreateActivity extends AppCompatActivity {
     ImageButton btnDelete;
     Button[] numButtons = new Button[10];
     Integer[] numBtnIDs = {R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9};
-    TextView[] textViews = new TextView[6];
-    Integer[] textViewsID = {R.id.text1, R.id.text2, R.id.text3, R.id.text4, R.id.text5, R.id.text6};
 
     int i=0, j=0, count=0, deleteCount=0;
 
@@ -43,20 +41,6 @@ public class pinCreateActivity extends AppCompatActivity {
         for(i=0; i<numBtnIDs.length; i++) {
             numButtons[i] = (Button) findViewById(numBtnIDs[i]);
         }
-
-        for(i=0; i<textViews.length; i++) {
-            textViews[i] = (TextView) findViewById(textViewsID[i]);
-        }
-
-        textViews[2].setPaintFlags(textViews[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); // "PIN을 잊으셨나요?"에 밑줄긋기
-        textViews[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PinForgot.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         for(i=0; i<numBtnIDs.length; i++) {
             final int index;
