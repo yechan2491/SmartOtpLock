@@ -41,6 +41,19 @@
         app:layout_constraintVertical_bias="0.401"
         app:layout_constraintWidth_percent="0.65" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintVertical_bias="0.377"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/img1"
