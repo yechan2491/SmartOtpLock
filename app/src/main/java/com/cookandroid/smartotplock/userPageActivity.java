@@ -16,6 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class userPageActivity extends AppCompatActivity {
 
@@ -24,6 +29,7 @@ public class userPageActivity extends AppCompatActivity {
     Dialog dialog;
     private DrawerLayout drawerLayout;
     private View drawerView;
+    private RecyclerView recyclerview;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,17 +76,30 @@ public class userPageActivity extends AppCompatActivity {
         });
 
         // 정보보안 수정
-        change_verification = (Button) findViewById(R.id.change_verification);
-        change_verification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog = new Dialog(userPageActivity.this);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.security_dialog);
+//        change_verification = (Button) findViewById(R.id.change_verification);
+//        change_verification.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialog = new Dialog(userPageActivity.this);
+//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                dialog.setContentView(R.layout.security_dialog);
+//
+//                showDialog1();
+//            }
+//        });
 
-                showDialog1();
-            }
-        });
+        recyclerview = findViewById(R.id.recyclerview);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        List<ExpandableListAdapter.Item> data = new ArrayList<>();
+
+        ExpandableListAdapter.Item change = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "보안정보 수정");
+        change.invisibleChildren = new ArrayList<>();
+        change.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "PIN 수정"));
+        change.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, "패턴 수정"));
+        data.add(change);
+
+        recyclerview.setAdapter(new ExpandableListAdapter(this, data));
+
 
         // 로그아웃
         logoutBtn2 = (Button) findViewById(R.id.logoutBtn2);
