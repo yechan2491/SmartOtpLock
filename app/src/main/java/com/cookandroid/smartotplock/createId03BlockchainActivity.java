@@ -76,14 +76,14 @@ public class createId03BlockchainActivity extends AppCompatActivity {
                     public void onResponse(Call<Post> call, Response<Post> response) {
                         if(response.isSuccessful()) {
                             Post postResponse = response.body();
-                            Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다.",Toast.LENGTH_LONG).show();
                         }
                         //else Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(Call<Post> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),"실패",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"회원가입이 실패하였습니다.",Toast.LENGTH_LONG).show();
                         Log.d("오류 : ", t.getMessage());
                     }
                 });

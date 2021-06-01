@@ -191,12 +191,15 @@ public class createId02Activity extends AppCompatActivity {
 
         for(int i=0; i<array.length; i++  ){
             c=array[i];
-            if( !((c>=0x30 && c<=0x39) || (c>=0x41 && c<=0x5A) || (c>=0x61 && c<=0x7A))) {  //숫자 소문자 대문자 아니면
-                return true;    // 한글/특수문자 발견되었을 경우 true리턴
+            if((c>=0x30 && c<=0x39) || (c>=0x41 && c<=0x5A) || (c>=0x61 && c<=0x7A)) {  //숫자 소문자 대문자 입력될 경우
+                return true;
+            }
+            if(c==0x21 || c==0x52 || c==0x40 || (c>=0x23 && c<=0x25)) {  // 특수문자 입력될 경우
+                return true;
             }
             else if(array.length>20) {return true;}
         }
-        return false; // 영문, 숫자만 있을 경우  false 리턴
+        return false; // 한글만 있을 경우  false 리턴
     }
     /////////////////////////////////////////////////////////////////////
 
