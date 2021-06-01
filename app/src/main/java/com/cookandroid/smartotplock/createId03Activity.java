@@ -1,6 +1,7 @@
 package com.cookandroid.smartotplock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -95,9 +96,17 @@ public class createId03Activity extends AppCompatActivity {
                 finish();
             }
         });
+
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userPhoneNum = phoneText.getText().toString();
+
+                SharedPreferences preferences = getSharedPreferences("User1", 0);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("userPhoneNum", userPhoneNum);
+                editor.apply();
+
                 Intent intent=new Intent(getApplicationContext(), createId03BlockchainActivity.class);
                 startActivity(intent);
             }

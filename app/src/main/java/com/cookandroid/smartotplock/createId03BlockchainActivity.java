@@ -1,42 +1,95 @@
 package com.cookandroid.smartotplock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class createId03BlockchainActivity extends AppCompatActivity {
+
+    private final String BASEURL = "http://34.204.61.107";
+
     ImageButton backBtn;
     TextView warningText1;
     EditText phoneText;
     Button nextBtn;
+    String CLIENT_NAME, CLIENT_PHONE, CLIENT_ID, CLIENT_PWD, CLIENT_EMAIL;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_id03_blockchain);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASEURL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
         backBtn=findViewById(R.id.backBtn);
         warningText1=(TextView)findViewById(R.id.warningText1);
         phoneText=(EditText)findViewById(R.id.phoneText);
 
+        SharedPreferences preferences = getSharedPreferences("User1", 0);
+        CLIENT_NAME = preferences.getString("userName", "");
+        CLIENT_PHONE = preferences.getString("userPhoneNum", "");
+        CLIENT_ID = preferences.getString("userID", "");
+        CLIENT_PWD = preferences.getString("userPassword", "");
+        CLIENT_EMAIL = preferences.getString("userEmail", "");
 
         nextBtn=(Button)findViewById(R.id.nextBtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), signUpActivity.class);
-                startActivity(intent);
+                HashMap<String, Object> input = new HashMap<>();
+                input.put("CLIENT_ID", CLIENT_ID);
+                input.put("CLIENT_PWD", CLIENT_PWD);
+                input.put("CLIENT_NAME", CLIENT_NAME);
+                input.put("CLIENT_PHONE", CLIENT_PHONE);
+                input.put("CLIENT_EMAIL", CLIENT_EMAIL);
+
+                jsonPlaceHolderApi.postData(input).enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+                        if(response.isSuccessful()) {
+                            Post postResponse = response.body();
+                            Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
+                        }
+                        //else Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"실패",Toast.LENGTH_LONG).show();
+                        Log.d("오류 : ", t.getMessage());
+                    }
+                });
+
+//                Intent intent=new Intent(getApplicationContext(), signUpActivity.class);
+//                startActivity(intent);
             }
         });
 

@@ -10,7 +10,7 @@
 
 
     <com.cookandroid.smartotplock.EyesEditText
-        android:id="@+id/certificationText"
+        android:id="@+id/passText"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"
@@ -65,7 +65,7 @@
         app:layout_constraintWidth_percent="0.7" />
 
     <EditText
-        android:id="@+id/phoneText"
+        android:id="@+id/idText"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"

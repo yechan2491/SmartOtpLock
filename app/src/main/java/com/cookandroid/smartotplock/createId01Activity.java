@@ -1,6 +1,7 @@
 package com.cookandroid.smartotplock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -35,8 +36,8 @@ public class createId01Activity extends AppCompatActivity { // commit first test
         backBtn=(ImageButton) findViewById(R.id.backBtn);
         nextBtn=(Button)findViewById(R.id.nextBtn);
 
-        idText=(EditText)findViewById(R.id.phoneText);
-        passText=(EditText)findViewById(R.id.certificationText);
+        idText=(EditText)findViewById(R.id.idText);
+        passText=(EditText)findViewById(R.id.passText);
         passCheckText=(EditText)findViewById(R.id.passCheckText);
 
         warningText1=(TextView)findViewById(R.id.warningText1);
@@ -233,6 +234,16 @@ public class createId01Activity extends AppCompatActivity { // commit first test
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userID = idText.getText().toString();
+                String userPassword = passText.getText().toString();
+
+
+                SharedPreferences preferences = getSharedPreferences("User1", 0);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("userID", userID);
+                editor.putString("userPassword", userPassword);
+                editor.apply();
+
                 Intent intent =new Intent(getApplicationContext(), serviceTermsActivity.class);
                 startActivity(intent);
             }
