@@ -25,7 +25,7 @@ public class patternCheckActivity extends AppCompatActivity {
     PatternLockView mPatternLockView;
     String password;
     int count = 0;
-    TextView errorMessage;
+    TextView errorMessage, cancelText;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -110,6 +110,15 @@ public class patternCheckActivity extends AppCompatActivity {
             @Override
             public void onCleared() {
 
+            }
+        });
+
+        cancelText = (TextView) findViewById(R.id.cancelText);
+        cancelText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), signUpActivity.class);
+                startActivity(intent);
             }
         });
     }

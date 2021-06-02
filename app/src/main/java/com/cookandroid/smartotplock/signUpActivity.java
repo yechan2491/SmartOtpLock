@@ -142,7 +142,7 @@ public class signUpActivity extends AppCompatActivity {
 //                System.out.println(pref.contains("pin"));
 //                System.out.println(pref.contains("password"));
 
-                if(pref.contains("pin")==false && pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
+                if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
                     //System.out.println("AAA");
                     Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
                     startActivity(intent);

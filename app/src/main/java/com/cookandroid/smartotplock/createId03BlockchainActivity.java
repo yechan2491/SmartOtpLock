@@ -77,6 +77,7 @@ public class createId03BlockchainActivity extends AppCompatActivity {
                         if(response.isSuccessful()) {
                             Post postResponse = response.body();
                             Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다.",Toast.LENGTH_LONG).show();
+
                         }
                         //else Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
                     }

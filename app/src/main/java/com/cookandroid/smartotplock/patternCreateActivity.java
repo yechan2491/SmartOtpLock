@@ -20,6 +20,7 @@ import java.util.List;
 public class patternCreateActivity extends AppCompatActivity {
 
     PatternLockView mPatternLockView;
+    TextView cancelText;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +60,15 @@ public class patternCreateActivity extends AppCompatActivity {
             @Override
             public void onCleared() {
 
+            }
+        });
+
+        cancelText = (TextView) findViewById(R.id.cancelText);
+        cancelText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), signUpActivity.class);
+                startActivity(intent);
             }
         });
     }
