@@ -2,6 +2,7 @@ package com.cookandroid.smartotplock;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,8 +27,9 @@ import java.util.List;
 
 public class userPageActivity extends AppCompatActivity {
 
+    TextView nameText, nameText2;
     LinearLayout linearLayout;
-    Button settingBtn, create_OTP, regist_key, change_verification, logoutBtn2, otpBtn,logoutBtn, securityChangeBtn;
+    Button create_OTP, regist_key, logoutBtn2;
     Dialog dialog;
     private DrawerLayout drawerLayout;
     private View drawerView;
@@ -35,6 +39,12 @@ public class userPageActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_page);
+
+        SharedPreferences pref = getSharedPreferences("User1", 0);
+        String userName = pref.getString("userName", "");
+
+        nameText = (TextView) findViewById(R.id.text1);
+        nameText.setText("어서오세요.\n" + userName + "님 환영합니다.");
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerView = (View) findViewById(R.id.drawer);
@@ -47,14 +57,9 @@ public class userPageActivity extends AppCompatActivity {
             }
         });
 
-        // 설정
-//        settingBtn = (Button) findViewById(R.id.settingBtn);
-//        settingBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                drawerLayout.openDrawer(drawerView);
-//            }
-//        });
+        nameText2 = (TextView) findViewById(R.id.nameText2);
+        nameText2.setText(userName + " 님");
+
 
         // OTP 생성
         create_OTP = (Button) findViewById(R.id.create_OTP);
@@ -74,19 +79,6 @@ public class userPageActivity extends AppCompatActivity {
 
             }
         });
-
-        // 정보보안 수정
-//        change_verification = (Button) findViewById(R.id.change_verification);
-//        change_verification.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog = new Dialog(userPageActivity.this);
-//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                dialog.setContentView(R.layout.security_dialog);
-//
-//                showDialog1();
-//            }
-//        });
 
         recyclerview = findViewById(R.id.recyclerview);
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -121,42 +113,6 @@ public class userPageActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
-
-
-
-//        otpBtn=(Button)findViewById(R.id.otpBtn);
-//        otpBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent =new Intent(getApplicationContext(), otpCheckActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        logoutBtn=(Button)findViewById(R.id.logoutBtn);
-//        logoutBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent =new Intent(getApplicationContext(), signUpActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        onBackPressed();
-//
-//        securityChangeBtn = (Button) findViewById(R.id.securityChangeBtn);
-//        securityChangeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog = new Dialog(userPageActivity.this);
-//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                dialog.setContentView(R.layout.security_dialog);
-//
-//                showDialog1();
-//            }
-//        });
-
     }
 
     DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
