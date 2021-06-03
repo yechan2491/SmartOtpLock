@@ -106,8 +106,10 @@ public class userPageActivity extends AppCompatActivity {
         logoutBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), signUpActivity.class);
-                startActivity(intent);
+                dialog = new Dialog(userPageActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.logout_dialog);
+                showDialog1();
             }
         });
 
@@ -184,39 +186,29 @@ public class userPageActivity extends AppCompatActivity {
 
     }
 
-    // 보안정보 수정 팝업창
+    // 로그아웃 팝업창
     public void showDialog1() {
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Button cancelBtn = dialog.findViewById(R.id.cancelBtn);
-        Button changePin = dialog.findViewById(R.id.changePin);
-        Button changePattern = dialog.findViewById(R.id.changePattern);
+        Button yesBtn = dialog.findViewById(R.id.yesBtn);
+        Button noBtn = dialog.findViewById(R.id.noBtn);
 
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
+        yesBtn.setOnClickListener(new View.OnClickListener() {  // 예
             @Override
             public void onClick(View view) {
                 //finish();
-                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+                Intent intent = new Intent(getApplicationContext(), signUpActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        changePin.setOnClickListener(new View.OnClickListener() {  // PIN 수정
+        noBtn.setOnClickListener(new View.OnClickListener() {  // 아니오
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), pinMatchActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        changePattern.setOnClickListener(new View.OnClickListener() {  // 패턴 수정
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), patternMatchActivity.class);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(getApplicationContext(), pinMatchActivity.class);
+//                startActivity(intent);
+                dialog.dismiss();
             }
         });
         //dialog.setCancelable(false);
