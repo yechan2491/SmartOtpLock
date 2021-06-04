@@ -13,13 +13,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class createId01Activity extends AppCompatActivity { // commit first test
+
+    private final String BASEURL = "http://34.204.61.107";
+
     ImageButton backBtn; //yechan - test commit2
-    Button nextBtn;  //lee  //test2
+    Button nextBtn, idCheck;  //lee  //test2
 
     EditText idText,passText,passCheckText;
     TextView warningText1, warningText2,warningText3;
@@ -35,6 +45,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
 
         backBtn=(ImageButton) findViewById(R.id.backBtn);
         nextBtn=(Button)findViewById(R.id.nextBtn);
+        idCheck=(Button)findViewById(R.id.idCheck);
 
         idText=(EditText)findViewById(R.id.idText);
         passText=(EditText)findViewById(R.id.passText);
@@ -44,9 +55,12 @@ public class createId01Activity extends AppCompatActivity { // commit first test
         warningText2=(TextView)findViewById(R.id.warningText2);
         warningText3=(TextView)findViewById(R.id.warningText3);
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASEURL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-
-
+        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
 
         /***idText 이벤트처리***/
@@ -103,6 +117,34 @@ public class createId01Activity extends AppCompatActivity { // commit first test
 
             }
         });
+
+        // 아이디 중복 확인
+        idCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userIDCheck = idText.getText().toString();
+                jsonPlaceHolderApi.checkData(userIDCheck).enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+
+                        if(response.isSuccessful() && response.body() != null){
+                            Boolean isDuplicate = response.body().getResult(); //중복된아이디인지
+                            if(isDuplicate){ //중복
+                                Toast.makeText(getApplicationContext(), "중복된 아이디입니다.", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "실패 : " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
         ///////////////////////////////////////////////////////////////////////
 
         /***passText 이벤트 처리***/

@@ -22,6 +22,8 @@ public class Post { //https://jsonplaceholder.typicode.com 서버에 있는 Json
     private String CLIENT_PHONE;
     @SerializedName("CLIENT_EMAIL")
     private String CLIENT_EMAIL;
+    @SerializedName("result")
+    private Boolean result;
 
     public String getCLIENT_ID() {
         return CLIENT_ID;
@@ -62,4 +64,8 @@ public class Post { //https://jsonplaceholder.typicode.com 서버에 있는 Json
     public void setCLIENT_EMAIL(String CLIENT_EMAIL) {
         this.CLIENT_EMAIL = CLIENT_EMAIL;
     }
+
+    public Boolean getResult() { return result; }
+
+    public void setResult(Boolean Result) { this.result = result; }
 }

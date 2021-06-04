@@ -6,6 +6,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -26,6 +27,9 @@ public interface JsonPlaceHolderApi {
     @POST("/user/join")
     Call<Post> postData( @FieldMap HashMap<String , Object> param);
 
+    @FormUrlEncoded
+    @POST("/user/checkId")
+    Call<Post> checkData(@Field("CLIENT_ID") String checkId);
 
     @PUT("/posts/{path}")
     Call<Post> putData(@Path("path") int path,@Body Post post);
