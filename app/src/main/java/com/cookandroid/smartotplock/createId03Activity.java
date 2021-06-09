@@ -94,12 +94,16 @@ public class createId03Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText1.setVisibility(View.VISIBLE);
+                        nextBtn.setEnabled(false);
+                        nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
                     }
                 }
                 else{  // 특수문자가 아닐때 검정색
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText1.setVisibility(View.INVISIBLE);
+                        nextBtn.setEnabled(true);
+                        nextBtn.setBackgroundResource(R.drawable.solid_button);
                     }
                 }
             }

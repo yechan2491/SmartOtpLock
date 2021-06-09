@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -141,12 +142,16 @@ public class createId02Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText2.setVisibility(View.VISIBLE);
+                        nextBtn.setEnabled(false);
+                        nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
                     }
                 }
                 else{  //메일에 @있을때 검정색
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText2.setVisibility(View.INVISIBLE);
+                        nextBtn.setEnabled(true);
+                        nextBtn.setBackgroundResource(R.drawable.solid_button);
                     }
                 }
             }
@@ -165,18 +170,45 @@ public class createId02Activity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userName = nameText.getText().toString();
-                String userEmail = emailText.getText().toString();
+                if (!(nameText.getText().toString().equals("")) && !(emailText.getText().toString().equals(""))) {
+                    if(isContainsSymbol(nameText.getText().toString())){ //특수 문자가 있을때 빨간색
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            Toast.makeText(getApplicationContext(), "이름을 조건에 맞춰 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    if(isContainsSymbol2(emailText.getText().toString())){ //메일에 @ 없을때 빨간색
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            Toast.makeText(getApplicationContext(), "이메일 주소를 조건에 맞춰 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    if(!(isContainsSymbol(nameText.getText().toString()))&&!(isContainsSymbol2(emailText.getText().toString()))) {
+                        String userName = nameText.getText().toString();
+                        String userEmail = emailText.getText().toString();
 
 
-                SharedPreferences preferences = getSharedPreferences("User1", 0);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("userName", userName);
-                editor.putString("userEmail", userEmail);
-                editor.apply();
+                        SharedPreferences preferences = getSharedPreferences("User1", 0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("userName", userName);
+                        editor.putString("userEmail", userEmail);
+                        editor.apply();
 
-                Intent intent =new Intent(getApplicationContext(), createId03Activity.class);
-                startActivity(intent);
+                        Intent intent =new Intent(getApplicationContext(), createId03Activity.class);
+                        startActivity(intent);
+                    }
+                }
+                else {
+                    if(nameText.getText().toString().equals("")&&!(emailText.getText().toString().equals(""))){
+                        Toast.makeText(getApplicationContext(), "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                    if(emailText.getText().toString().equals("")&&!(nameText.getText().toString().equals(""))){
+                        Toast.makeText(getApplicationContext(), "이메일 주소를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                    if(emailText.getText().toString().equals("")&&nameText.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(), "이름과 이메일 주소를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 

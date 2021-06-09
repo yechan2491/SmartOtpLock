@@ -33,7 +33,8 @@ public class createId01Activity extends AppCompatActivity { // commit first test
 
     EditText idText,passText,passCheckText;
     TextView warningText1, warningText2,warningText3;
-
+    Boolean nextBtn_IDcheck=false;
+    Boolean resultA=false, resultB=false;
 
     private String passArray=""; // 패스워드 저장을 위한 배열
 
@@ -102,12 +103,16 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText1.setVisibility(View.VISIBLE);
+                        idCheck.setBackgroundResource(R.drawable.solid_button_gray);
+                        idCheck.setEnabled(false);
                     }
                 }
                 else{  // 특수문자가 아닐때 검정색
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText1.setVisibility(View.INVISIBLE);
+                        idCheck.setBackgroundResource(R.drawable.solid_button);
+                        idCheck.setEnabled(true);
                     }
                 }
             }
@@ -131,8 +136,11 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                             Boolean isDuplicate = response.body().getResult(); //중복된아이디인지
                             if(isDuplicate){ //중복
                                 Toast.makeText(getApplicationContext(), "중복된 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                nextBtn_IDcheck = false;
                             }else{
                                 Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                nextBtn_IDcheck = true;
+//                                System.out.println("nextBtn_IDcheck : " + nextBtn_IDcheck);
                             }
                         }
                     }
@@ -169,8 +177,6 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                             passText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         }
                     }
-
-
                 }
             }
         });
@@ -244,12 +250,16 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText3.setVisibility(View.VISIBLE);
+                        nextBtn.setEnabled(false);
+                        nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
                     }
                 }
                 else{  //비밀번호 일치시 검정색
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText3.setVisibility(View.INVISIBLE);
+                        nextBtn.setEnabled(true);
+                        nextBtn.setBackgroundResource(R.drawable.solid_button);
                     }
                 }
             }
@@ -271,23 +281,26 @@ public class createId01Activity extends AppCompatActivity { // commit first test
         });
         //////////////////////////////
 
-
-        /***다음버튼 이벤트***/
+        /***다음 버튼 이벤트***/
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userID = idText.getText().toString();
-                String userPassword = passText.getText().toString();
+                if(nextBtn_IDcheck) { // 아이디 중복확인 했을 때
+                    String userID = idText.getText().toString();
+                    String userPassword = passText.getText().toString();
 
+                    SharedPreferences preferences = getSharedPreferences("User1", 0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("userID", userID);
+                    editor.putString("userPassword", userPassword);
+                    editor.apply();
 
-                SharedPreferences preferences = getSharedPreferences("User1", 0);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("userID", userID);
-                editor.putString("userPassword", userPassword);
-                editor.apply();
-
-                Intent intent =new Intent(getApplicationContext(), serviceTermsActivity.class);
-                startActivity(intent);
+                    Intent intent =new Intent(getApplicationContext(), serviceTermsActivity.class);
+                    startActivity(intent);
+                }
+                else {  // 아이디 중복확인 안했을 때
+                    Toast.makeText(getApplicationContext(), "아이디 중복확인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         ///////////////////////////////
