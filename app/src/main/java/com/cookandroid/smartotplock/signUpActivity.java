@@ -52,7 +52,7 @@ public class signUpActivity extends AppCompatActivity {
 
         sign_up_text = (TextView) findViewById(R.id.sign_up_text);
         loginBtn = (Button) findViewById(R.id.textView2);
-        loginButton = (ImageView) findViewById(R.id.login);
+//        loginButton = (ImageView) findViewById(R.id.login);
 //        nickName=findViewById(R.id.nickname);
 //        profileImage=findViewById(R.id.profile);
 
@@ -107,17 +107,17 @@ public class signUpActivity extends AppCompatActivity {
             }
         };
 
-        loginButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if(LoginClient.getInstance().isKakaoTalkLoginAvailable(signUpActivity.this)){
-                    LoginClient.getInstance().loginWithKakaoTalk(signUpActivity.this, callback);
-                }
-                else {
-                    LoginClient.getInstance().loginWithKakaoAccount(signUpActivity.this,callback);
-                }
-            }
-        });
+//        loginButton.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//                if(LoginClient.getInstance().isKakaoTalkLoginAvailable(signUpActivity.this)){
+//                    LoginClient.getInstance().loginWithKakaoTalk(signUpActivity.this, callback);
+//                }
+//                else {
+//                    LoginClient.getInstance().loginWithKakaoAccount(signUpActivity.this,callback);
+//                }
+//            }
+//        });
 
         sign_up_text.setOnClickListener(new View.OnClickListener() {
             @Override
