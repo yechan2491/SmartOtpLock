@@ -51,8 +51,8 @@
         android:layout_height="0dp"
         android:fontFamily="@font/noto_sans_cjkkr_bold"
         android:text="도어락에 해당 OTP번호 6자리를 입력해 주세요."
+        android:textSize="13dp"
         android:textColor="#707070"
-        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,46 +63,40 @@
         app:layout_constraintVertical_bias="0.155"
         app:layout_constraintWidth_percent="0.73" />
 
-    <View
-        android:id="@+id/view8"
+    <TextView
+        android:id="@+id/timeText1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#707070"
+        android:fontFamily="@font/noto_sans_cjkkr_medium"
+        android:gravity="center_horizontal"
+        android:text="남은 시간 :"
+        android:textColor="#707070"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.004"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324"
-        app:layout_constraintWidth_percent="0.1" />
+        app:layout_constraintVertical_bias="0.37"
+        app:layout_constraintWidth_percent="0.3" />
 
-    <View
-        android:id="@+id/view3"
+    <TextView
+        android:id="@+id/timeText"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#707070"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.004"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.324"
-        app:layout_constraintWidth_percent="0.1" />
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#707070"
+        android:fontFamily="@font/noto_sans_cjkkr_medium"
+        android:gravity="center_horizontal"
+        android:text="00 초"
+        android:textColor="#707070"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.004"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324"
+        app:layout_constraintVertical_bias="0.37"
         app:layout_constraintWidth_percent="0.1" />
 
     <Button
@@ -113,10 +107,10 @@
         android:fontFamily="@font/noto_sans_cjkkr_medium"
         android:text="재발급"
         android:textColor="#ffffff"
-        android:textSize="15dp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintHeight_percent="0.055"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -192,106 +186,134 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/OTPNum0"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="4"
+        android:text="0"
         android:textColor="#191919"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintHorizontal_bias="0.57"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261"
-        app:layout_constraintWidth_percent="0.053" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="3"
-        android:textColor="#191919"
-        android:textSize="40dp"
+        android:textSize="38dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.261"
+        app:layout_constraintWidth_percent="0.065" />
+
+    <TextView
+        android:id="@+id/OTPNum1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="0"
+        android:textColor="#191919"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.261"
-        app:layout_constraintWidth_percent="0.053" />
+        app:layout_constraintWidth_percent="0.065" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/OTPNum2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="2"
+        android:text="0"
         android:textColor="#191919"
-        android:textSize="40dp"
+        android:textSize="38dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.261"
-        app:layout_constraintWidth_percent="0.053" />
+        app:layout_constraintWidth_percent="0.065" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/OTPNum3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="5"
+        android:text="0"
         android:textColor="#191919"
-        android:textSize="40dp"
+        android:textSize="38dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.261"
-        app:layout_constraintWidth_percent="0.053" />
+        app:layout_constraintWidth_percent="0.065" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/OTPNum4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="1"
+        android:text="0"
         android:textColor="#191919"
-        android:textSize="40dp"
+        android:textSize="38dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.707"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.261"
-        app:layout_constraintWidth_percent="0.053" />
+        app:layout_constraintWidth_percent="0.065" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/OTPNum5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="6"
+        android:text="0"
         android:textColor="#191919"
-        android:textSize="40dp"
+        android:textSize="38dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.845"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.261"
-        app:layout_constraintWidth_percent="0.053" />
+        app:layout_constraintWidth_percent="0.065" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#707070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.004"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.324"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#707070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.004"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.324"
+        app:layout_constraintWidth_percent="0.1" />
 
     <View
         android:id="@+id/view4"
@@ -304,6 +326,20 @@
         app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.324"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#707070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.004"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.324"
         app:layout_constraintWidth_percent="0.1" />
 
@@ -322,32 +358,18 @@
         app:layout_constraintWidth_percent="0.1" />
 
     <View
-        android:id="@+id/view5"
+        android:id="@+id/view7"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#707070"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.004"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.324"
-        app:layout_constraintWidth_percent="0.1" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082"
-        app:layout_constraintWidth_percent="0.08"
-        app:srcCompat="@drawable/info_circle" />
+        app:layout_constraintVertical_bias="0.324"
+        app:layout_constraintWidth_percent="0.1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

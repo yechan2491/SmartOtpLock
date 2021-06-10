@@ -29,7 +29,7 @@ public class userPageActivity extends AppCompatActivity {
 
     TextView nameText, nameText2;
     LinearLayout linearLayout;
-    Button create_OTP, regist_key, logoutBtn2;
+    Button create_OTP, regist_key, logoutBtn2, lock_1;
     Dialog dialog;
     private DrawerLayout drawerLayout;
     private View drawerView;
@@ -60,6 +60,14 @@ public class userPageActivity extends AppCompatActivity {
         nameText2 = (TextView) findViewById(R.id.nameText2);
         nameText2.setText(userName + " 님");
 
+        lock_1 = (Button) findViewById(R.id.lock_1);
+        lock_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getApplicationContext(), otpCheckActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // OTP 생성
         create_OTP = (Button) findViewById(R.id.create_OTP);

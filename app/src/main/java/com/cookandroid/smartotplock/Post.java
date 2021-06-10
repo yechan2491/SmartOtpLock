@@ -24,6 +24,8 @@ public class Post { //https://jsonplaceholder.typicode.com 서버에 있는 Json
     private String CLIENT_EMAIL;
     @SerializedName("result")
     private Boolean result;
+    @SerializedName("OTP_NUM")
+    private String OTP_NUM;
 
     public String getCLIENT_ID() {
         return CLIENT_ID;
@@ -68,4 +70,8 @@ public class Post { //https://jsonplaceholder.typicode.com 서버에 있는 Json
     public Boolean getResult() { return result; }
 
     public void setResult(Boolean Result) { this.result = result; }
+
+    public String getOTP_NUM() { return OTP_NUM; }
+
+    public void setOTP_NUM(String OTP_NUM) { this.OTP_NUM = OTP_NUM; }
 }

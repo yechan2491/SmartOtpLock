@@ -36,4 +36,8 @@ public interface JsonPlaceHolderApi {
 
     @DELETE("posts/{path}")
     Call<Void> deleteData(@Path("path") int path);
+
+    @FormUrlEncoded
+    @POST("/user/otp")
+    Call<Post> OTPData(@Field("OTP_NUM") String otpNum);
 }
