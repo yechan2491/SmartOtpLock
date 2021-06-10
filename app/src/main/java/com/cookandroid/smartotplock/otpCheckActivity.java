@@ -1,6 +1,7 @@
 package com.cookandroid.smartotplock;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.PersistableBundle;
@@ -169,6 +170,7 @@ public class otpCheckActivity extends AppCompatActivity {
             public void onTick(long l) {
                 value--;
                 timeText.setText(value + " 초");
+                timeText.setTextColor(Color.parseColor("#ff3120"));
             }
 
             @Override
