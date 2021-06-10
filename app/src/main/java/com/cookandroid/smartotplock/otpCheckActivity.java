@@ -1,5 +1,6 @@
 package com.cookandroid.smartotplock;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.PersistableBundle;
@@ -50,6 +51,10 @@ public class otpCheckActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(countDownTimer != null) {
+                    countDownTimer.cancel();
+                }
+
                 finish();
             }
         });
@@ -85,7 +90,7 @@ public class otpCheckActivity extends AppCompatActivity {
                     public void onResponse(Call<Post> call, Response<Post> response) {
                         if(response.isSuccessful()) {
                             Post postResponse = response.body();
-                            Toast.makeText(getApplicationContext(),"OTP가 성공적으로 등록되었습니다..",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"OTP가 성공적으로 등록되었습니다.",Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -172,6 +177,17 @@ public class otpCheckActivity extends AppCompatActivity {
             }
         };
         timeCounter.start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        
+        Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+        startActivity(intent);
     }
 }
 
