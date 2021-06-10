@@ -27,7 +27,7 @@ public class userPageActivity extends AppCompatActivity {
 
     TextView nameText, nameText2;
     LinearLayout linearLayout;
-    Button create_OTP, regist_key, logoutBtn2, lock_1;
+    Button logoutBtn2, lock_1;
     Dialog dialog;
     private DrawerLayout drawerLayout;
     private View drawerView;
@@ -68,23 +68,23 @@ public class userPageActivity extends AppCompatActivity {
         });
 
         // OTP 생성
-        create_OTP = (Button) findViewById(R.id.create_OTP);
-        create_OTP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(), otpCheckActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // 시리얼 정보 등록
-        regist_key = (Button) findViewById(R.id.regist_key);
-        regist_key.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        create_OTP = (Button) findViewById(R.id.create_OTP);
+//        create_OTP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent =new Intent(getApplicationContext(), otpCheckActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        // 시리얼 정보 등록
+//        regist_key = (Button) findViewById(R.id.regist_key);
+//        regist_key.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
         recyclerview = findViewById(R.id.recyclerview);
         recyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));

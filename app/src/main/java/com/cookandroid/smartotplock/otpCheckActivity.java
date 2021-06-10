@@ -185,7 +185,7 @@ public class otpCheckActivity extends AppCompatActivity {
         if(countDownTimer != null) {
             countDownTimer.cancel();
         }
-        
+
         Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
         startActivity(intent);
     }

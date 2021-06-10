@@ -33,37 +33,10 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/create_OTP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="20dp"
-        android:text="OTP 생성"
-        android:textSize="12dp"
-        android:textColor="#191919"
-        android:background="#00ff0000"
-        android:fontFamily="@font/noto_sans_cjkkr_medium" />
-
-    <Button
-        android:id="@+id/regist_key"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="20dp"
-        android:text="시리얼 정보 등록"
-        android:textSize="12dp"
-        android:textColor="#191919"
-        android:background="#00ff0000"
-        android:fontFamily="@font/noto_sans_cjkkr_medium" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-
-
 
     <Button
         android:id="@+id/logoutBtn2"
