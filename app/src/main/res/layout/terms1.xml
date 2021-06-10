@@ -14,15 +14,15 @@
         android:fontFamily="@font/noto_sans_cjkkr_bold"
         android:text="이용 약관"
         android:textColor="#191919"
-        android:textSize="24dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.14"
-        app:layout_constraintWidth_percent="0.25" />
+        app:layout_constraintWidth_percent="0.3" />
 
     <View
         android:id="@+id/view"
