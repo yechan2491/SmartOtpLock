@@ -25,7 +25,7 @@ import java.util.List;
 
 public class userPageActivity extends AppCompatActivity {
 
-    TextView nameText, nameText2;
+    TextView nameText, nameText2, lastAccessTime;
     LinearLayout linearLayout;
     Button logoutBtn2, lock_1;
     Dialog dialog;
@@ -43,6 +43,11 @@ public class userPageActivity extends AppCompatActivity {
 
         nameText = (TextView) findViewById(R.id.text1);
         nameText.setText("어서오세요.\n" + userName + "님 환영합니다.");
+
+        SharedPreferences preferences = getSharedPreferences("Time", 0);
+        String nowTime = preferences.getString("time", "");
+        lastAccessTime = (TextView) findViewById(R.id.lastAccessTime);
+        lastAccessTime.setText(nowTime);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerView = (View) findViewById(R.id.drawer);

@@ -21,6 +21,8 @@ import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
 //import com.kakao.sdk.template.model.Button;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import kotlin.Unit;
@@ -138,9 +140,15 @@ public class signUpActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //preferences.contains("pin");
-//                System.out.println(pref.contains("pin"));
-//                System.out.println(pref.contains("password"));
+                long nowTime = System.currentTimeMillis();
+                Date date = new Date(nowTime);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                String getTime = dateFormat.format(date);
+
+                SharedPreferences preferences = getSharedPreferences("Time", 0);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("time", getTime);
+                editor.apply();
 
                 if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
                     //System.out.println("AAA");
