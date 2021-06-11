@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ import com.kakao.sdk.auth.model.OAuthToken;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import kotlin.Unit;
@@ -34,16 +37,19 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class signUpActivity extends AppCompatActivity {
+
+    EditText id_edit, password_edit;
     TextView sign_up_text;
     private View loginButton;
     Button loginBtn;
     SharedPreferences pref_firstRun, pref;
     Dialog dialog;
+    CheckBox checkBox1, checkBox2;
     //private TextView nickName;
     //private ImageView profileImage;
 
-//    private Retrofit retrofit;
-//    private final String BASE_URL = "https://api.github.com";
+    private Retrofit retrofit;
+    private final String BASEURL = "http://34.204.61.107";
     private EditText idEditText,pwEditText;
 
 
@@ -52,6 +58,11 @@ public class signUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
 
+        init();
+        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+        id_edit = (EditText) findViewById(R.id.idEditText);
+        password_edit = (EditText) findViewById(R.id.pwEditText);
         sign_up_text = (TextView) findViewById(R.id.sign_up_text);
         loginBtn = (Button) findViewById(R.id.textView2);
 //        loginButton = (ImageView) findViewById(R.id.login);
@@ -137,26 +148,66 @@ public class signUpActivity extends AppCompatActivity {
 //            }
 //        });
 
+        ////////////////////////로그인/////////////////////////
+        String inputID = id_edit.getText().toString();
+        String inputPassword = password_edit.getText().toString();
+
+        checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
+        checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long nowTime = System.currentTimeMillis();
-                Date date = new Date(nowTime);
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                String getTime = dateFormat.format(date);
+                if(id_edit.getText().toString().equals("") || password_edit.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    HashMap<String, String> input = new HashMap<>();
+                    input.put("CLIENT_ID", inputID);
+                    input.put("CLIENT_PWD", inputPassword);
 
-                SharedPreferences preferences = getSharedPreferences("Time", 0);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("time", getTime);
-                editor.apply();
+                    jsonPlaceHolderApi.loginData(input).enqueue(new Callback<Post>() {
+                        @Override
+                        public void onResponse(Call<Post> call, Response<Post> response) {
+                            if(response.isSuccessful() && response.body() != null){
+                                Boolean Result = response.body().getResult();
+                                if(Result){
+                                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+                                    System.out.println("Result : " + Result);
+                                }
+                            }
 
-                if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
-                    //System.out.println("AAA");
-                    Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
-                    startActivity(intent);
-                } else {
-                    Intent intent =new Intent(getApplicationContext(), passVerificationActivity.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
-                    startActivity(intent);
+//                        Post result = response.body();
+//                        Toast.makeText(signUpActivity.this, "아이디 : " + result.getCLIENT_ID() + "비밀번호 : " + result.getCLIENT_PWD(), Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<Post> call, Throwable t) {
+                            Toast.makeText(signUpActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                            Log.d("로그인 실패 : ", t.getMessage());
+                        }
+                    });
+
+                    long nowTime = System.currentTimeMillis();
+                    Date date = new Date(nowTime);
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    String getTime = dateFormat.format(date);
+
+                    SharedPreferences preferences = getSharedPreferences("Time", 0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("time", getTime);
+                    editor.apply();
+
+                    if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
+                        //System.out.println("AAA");
+                        Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
+                        startActivity(intent);
+                    } else {
+                        Intent intent =new Intent(getApplicationContext(), passVerificationActivity.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -205,13 +256,13 @@ public class signUpActivity extends AppCompatActivity {
         dialog.setCancelable(false);
     }
 
-//    public void init() {
-//        // GSON 컨버터를 사용하는 REST 어댑터 생성
-//        retrofit = new Retrofit.Builder()
-//                .baseUrl(BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//    }
+    public void init() {
+        // GSON 컨버터를 사용하는 REST 어댑터 생성
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASEURL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
 //    private void updateKakaoLoginUi(){
 //        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {

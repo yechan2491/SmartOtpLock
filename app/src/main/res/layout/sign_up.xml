@@ -44,15 +44,18 @@
         app:layout_constraintVertical_bias="0.2"
         app:layout_constraintHorizontal_bias="0.2" />
 
-    <EditText
+    <com.cookandroid.smartotplock.EyesEditText
         android:id="@+id/pwEditText"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#f1f1f5"
         android:ems="10"
+        android:inputType="textPassword"
+        android:maxLength="35"
+        android:maxLines="1"
+        android:theme="@style/EditTheme"
         android:fontFamily="@font/noto_sans_cjkkr_regular"
         android:hint="비밀번호를 입력해주세요"
-        android:inputType="numberPassword"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="#999999"
@@ -64,7 +67,7 @@
         app:layout_constraintWidth_percent="0.88"
         app:layout_constraintHeight_percent="0.07"
         app:layout_constraintVertical_bias="0.59"
-        app:layout_constraintHorizontal_bias="0.5"/>
+        app:layout_constraintHorizontal_bias="0.5" />
 
     <EditText
         android:id="@+id/idEditText"
@@ -159,7 +162,7 @@
         app:layout_constraintWidth_percent="0.2" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBox1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:button="@drawable/custom_checkbox"
@@ -174,7 +177,7 @@
         app:layout_constraintVertical_bias="0.667"/>
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:button="@null"

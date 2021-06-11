@@ -31,6 +31,10 @@ public interface JsonPlaceHolderApi {
     @POST("/user/checkId")
     Call<Post> checkData(@Field("CLIENT_ID") String checkId);
 
+    @FormUrlEncoded
+    @POST("/user/login")
+    Call<Post> loginData(@FieldMap HashMap<String, String> login);
+
     @PUT("/posts/{path}")
     Call<Post> putData(@Path("path") int path,@Body Post post);
 
