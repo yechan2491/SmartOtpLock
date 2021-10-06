@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmartOtpLock</string>
+    <string name="app_name">늘품아이 스마트락</string>
     <string name="sign_up"><u>회원가입</u></string>
     <string name="sign_passwd"><u>비밀번호 찾기</u></string>
     <string name="search_id"><u>ID 찾기</u></string>
