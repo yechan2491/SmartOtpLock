@@ -203,6 +203,17 @@ public class signUpActivity extends AppCompatActivity {
 
                                 if(Result){   // 아이디와 비번이 맞으면
                                     Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+
+                                    if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
+                                        //System.out.println("AAA");
+                                        Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
+                                        startActivity(intent);
+                                    } else {
+                                        Intent intent =new Intent(getApplicationContext(), passVerificationActivity.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
+                                        startActivity(intent);
+                                    }
+
+
 //                                    String username = response.body().getCLIENT_NAME();
 //                                    System.out.println(username);
 //                                    Log.d("Asd", username);
@@ -217,7 +228,7 @@ public class signUpActivity extends AppCompatActivity {
 //                                        startActivity(intent);
 //                                    }
                                 }else{  // 아이디와 비번이 틀리면
-                                    Toast.makeText(getApplicationContext(), "비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
                                     System.out.println("Result : " + Result);
                                 }
                             }
@@ -288,14 +299,7 @@ public class signUpActivity extends AppCompatActivity {
 
 
 
-                    if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
-                        //System.out.println("AAA");
-                        Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
-                        startActivity(intent);
-                    } else {
-                        Intent intent =new Intent(getApplicationContext(), passVerificationActivity.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
-                        startActivity(intent);
-                    }
+
                 }
             }
         });
