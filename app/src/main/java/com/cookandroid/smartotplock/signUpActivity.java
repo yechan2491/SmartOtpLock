@@ -39,7 +39,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class signUpActivity extends AppCompatActivity {
 
-    EditText id_edit, password_edit;
+    EditText password_edit, newidEditText;
     TextView sign_up_text;
     private View loginButton;
     Button loginBtn;
@@ -64,13 +64,15 @@ public class signUpActivity extends AppCompatActivity {
         init();
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        id_edit = (EditText) findViewById(R.id.idEditText);
+//        id_edit = (EditText)findViewById(R.id.idEditText);
         password_edit = (EditText) findViewById(R.id.pwEditText);
         sign_up_text = (TextView) findViewById(R.id.sign_up_text);
         loginBtn = (Button) findViewById(R.id.textView2);
 //        loginButton = (ImageView) findViewById(R.id.login);
 //        nickName=findViewById(R.id.nickname);
 //        profileImage=findViewById(R.id.profile);
+
+        newidEditText = (EditText)findViewById(R.id.newidEditText);
 
 
         pref_firstRun = getSharedPreferences("FirstRun", MODE_PRIVATE);
@@ -161,8 +163,7 @@ public class signUpActivity extends AppCompatActivity {
 //        });
 
         ////////////////////////로그인/////////////////////////
-        String inputID = id_edit.getText().toString();
-        String inputPassword = password_edit.getText().toString();
+
 
         checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -170,47 +171,41 @@ public class signUpActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(id_edit.getText().toString().equals("") || password_edit.getText().toString().equals("")) {
+                if(newidEditText.getText().toString().equals("") || password_edit.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    HashMap<String, String> input = new HashMap<>();
-                    input.put("CLIENT_ID", inputID);
-                    input.put("CLIENT_PWD", inputPassword);
-                    System.out.println(inputID);
+//                    HashMap<String, String> input = new HashMap<>();
+//                    input.put("CLIENT_ID", inputID);
+//                    input.put("CLIENT_PWD", inputPassword);
+
+                    String inputID = newidEditText.getText().toString();
+                    String inputPassword = password_edit.getText().toString();
 
 //                    jsonPlaceHolderApi.loginData(input).enqueue(new Callback<Post>() {
-                    jsonPlaceHolderApi.loginData(input).enqueue(new Callback<Post>() {
+                    jsonPlaceHolderApi.loginData2(inputID, inputPassword).enqueue(new Callback<Post>() {
+//                    jsonPlaceHolderApi.loginData2(Nametext).enqueue(new Callback<Post>() {
                         @Override
                         public void onResponse(Call<Post> call, Response<Post> response) {
                             if(response.isSuccessful() && response.body() != null){
                                 Boolean Result = response.body().getResult();
+                                String username = response.body().getCLIENT_NAME().toString();
+                                System.out.println("adsadasdasdasdasdasdasdasdasdasdas : "+ username);
+
+                                SharedPreferences pref2 = getSharedPreferences("CheckUsername", 0);
+                                SharedPreferences.Editor editor = pref2.edit();
+                                editor.putString("username", username);
+                                editor.apply();
+
+//                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+//                                intent.putExtra("username", username);
+
 
                                 if(Result){   // 아이디와 비번이 맞으면
                                     Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
 //                                    String username = response.body().getCLIENT_NAME();
 //                                    System.out.println(username);
 //                                    Log.d("Asd", username);
-//                                    // 메인화면에 사용자 이름 띄우기 위해 로그인 하는 아이디를 서버로 보내 사용자 이름 받아오기
-//                                    jsonPlaceHolderApi.checkUsername(inputID).enqueue(new Callback<Post>() {
-//                                        @Override
-//                                        public void onResponse(Call<Post> call, Response<Post> response) {
-//                                            Toast.makeText(getApplicationContext(), "username", Toast.LENGTH_SHORT).show();
-//                                            if (response.isSuccessful() && response.body() != null) {
-//                                                String username = response.body().getCLIENT_NAME();
-//                                                Log.d("Asd", username);
-//                                                System.out.print("adsadasdasdasdasdasdasdasdasdasdas"+username);
-//                                                Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
-//                                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
-//                                                intent.putExtra("username", username);
-//                                            }
-//                                        }
-//
-//                                        @Override
-//                                        public void onFailure(Call<Post> call, Throwable t) {
-//                                            Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    });
 
                                     /////////////////로그인 수정 필요!!!/////////////////
 //                                    if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
@@ -226,28 +221,6 @@ public class signUpActivity extends AppCompatActivity {
                                     System.out.println("Result : " + Result);
                                 }
                             }
-
-//                             메인화면에 사용자 이름 띄우기 위해 로그인 하는 아이디를 서버로 보내 사용자 이름 받아오기
-//                                    jsonPlaceHolderApi.checkUsername(inputID).enqueue(new Callback<Post>() {
-//                                        @Override
-//                                        public void onResponse(Call<Post> call, Response<Post> response) {
-//                                            Toast.makeText(getApplicationContext(), "username", Toast.LENGTH_SHORT).show();
-//                                            if (response.isSuccessful() && response.body() != null) {
-//                                                String username = response.body().getCLIENT_NAME();
-//                                                Log.d("Asd", username);
-//                                                System.out.print("adsadasdasdasdasdasdasdasdasdasdas"+username);
-//                                                Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
-//                                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
-//                                                intent.putExtra("username", username);
-//                                            }
-//                                        }
-//
-//                                        @Override
-//                                        public void onFailure(Call<Post> call, Throwable t) {
-//                                            Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    });
-
 //                        Post result = response.body();
 //                        Toast.makeText(signUpActivity.this, "아이디 : " + result.getCLIENT_ID() + "비밀번호 : " + result.getCLIENT_PWD(), Toast.LENGTH_SHORT).show();
                         }
@@ -258,6 +231,28 @@ public class signUpActivity extends AppCompatActivity {
                             Log.d("로그인 실패 : ", t.getMessage());
                         }
                     });
+
+
+                    //메인화면에 사용자 이름 띄우기 위해 로그인 하는 아이디를 서버로 보내 사용자 이름 받아오기
+//                    jsonPlaceHolderApi.checkUsername(inputID).enqueue(new Callback<Post>() {
+//                        @Override
+//                        public void onResponse(Call<Post> call, Response<Post> response) {
+//                            Toast.makeText(getApplicationContext(), "username", Toast.LENGTH_SHORT).show();
+//                            if (response.isSuccessful() && response.body() != null) {
+//                                String username = response.body().getCLIENT_NAME();
+//                                System.out.print("adsadasdasdasdasdasdasdasdasdasdas : "+ username);
+//                                Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
+//                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+//                                intent.putExtra("username", username);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<Post> call, Throwable t) {
+//                            Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+
 
                     long nowTime = System.currentTimeMillis();
                     Date date = new Date(nowTime);

@@ -22,6 +22,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kakao.sdk.user.model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,9 +56,14 @@ public class userPageActivity extends AppCompatActivity {
 
         nameText = (TextView) findViewById(R.id.text1);
 //        nameText.setText("어서오세요.\n" + userName + "님 환영합니다.");
-        Intent intent = getIntent();
+//        Intent intent = getIntent();
 //        nameText.setText("어서오세요.\n" + "가나다" + "님 환영합니다.");
-        nameText.setText("어서오세요.\n" + intent.getStringExtra("username") + "님 환영합니다.");
+//        nameText.setText("어서오세요.\n" + intent.getStringExtra("username"+ "") + "님 환영합니다.");
+        SharedPreferences pref2 = getSharedPreferences("CheckUsername", 0);
+        String UserName = pref2.getString("username", "");
+        nameText.setText("어서오세요.\n" + UserName + "님 환영합니다.");
+
+
 
         SharedPreferences preferences = getSharedPreferences("Time", 0);
         String nowTime = preferences.getString("time", "");
@@ -76,7 +83,8 @@ public class userPageActivity extends AppCompatActivity {
 
         nameText2 = (TextView) findViewById(R.id.nameText2);
 //        nameText2.setText(userName + " 님");
-        nameText2.setText(intent.getStringExtra("username") + " 님");
+//        nameText2.setText(intent.getStringExtra("username") + " 님");
+        nameText2.setText(UserName + " 님");
 
         lock_1 = (Button) findViewById(R.id.lock_1);
         lock_1.setOnClickListener(new View.OnClickListener() {
