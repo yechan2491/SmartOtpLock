@@ -24,6 +24,7 @@ public class createId02Activity extends AppCompatActivity {
 
     EditText emailText,nameText;
     TextView warningText1, warningText2;
+//    Boolean resultA=true, resultB=true, resultC=true, resultD=true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class createId02Activity extends AppCompatActivity {
                     if(!isContainsSymbol(nameText.getText().toString())){  //특수 문자가 아닐때 회색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             nameText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
+//                            resultA = false;
                         }
                     }
                 }
@@ -60,11 +62,13 @@ public class createId02Activity extends AppCompatActivity {
                     if(!isContainsSymbol(nameText.getText().toString())){  //특수 문자가 아닐때 검은색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             nameText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+//                            resultA = true;
                         }
                     }
                     if(isContainsSymbol(nameText.getText().toString())){  //특수 문자가 있을때 빨간색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             nameText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+//                            resultA = false;
                         }
                     }
 
@@ -84,12 +88,14 @@ public class createId02Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         nameText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText1.setVisibility(View.VISIBLE);
+//                        resultB = false;
                     }
                 }
                 else{  // 특수문자가 아닐때 검정색
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         nameText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText1.setVisibility(View.INVISIBLE);
+//                        resultB = true;
                     }
                 }
             }
@@ -110,6 +116,7 @@ public class createId02Activity extends AppCompatActivity {
                     if(!isContainsSymbol2(emailText.getText().toString())){  //정상적인 조합일때 회색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
+//                            resultC = false;
                         }
                     }
                 }
@@ -117,11 +124,13 @@ public class createId02Activity extends AppCompatActivity {
                     if(!isContainsSymbol2(emailText.getText().toString())){  //정상적인 조합일때 검은색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+//                            resultC = true;
                         }
                     }
                     if(isContainsSymbol2(emailText.getText().toString())){  //정상적인 조합이 아닐때 빨간색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+//                            resultC = false;
                         }
                     }
 
@@ -142,6 +151,7 @@ public class createId02Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText2.setVisibility(View.VISIBLE);
+//                        resultD = false;
                         nextBtn.setEnabled(false);
                         nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
                     }
@@ -150,6 +160,7 @@ public class createId02Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         emailText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText2.setVisibility(View.INVISIBLE);
+//                        resultD = true;
                         nextBtn.setEnabled(true);
                         nextBtn.setBackgroundResource(R.drawable.solid_button);
                     }
@@ -162,7 +173,17 @@ public class createId02Activity extends AppCompatActivity {
             }
         });
         //////////////////////////////////////////////////////////
-        
+
+        /***next 버튼 활성화 처리***/
+//        if (resultA==true && resultB==true && resultC==true && resultD==true) {  // 이름, 이메일 입력창 모두 조건 성립할 경우
+//            nextBtn.setEnabled(true);
+//            nextBtn.setBackgroundResource(R.drawable.solid_button);
+//        }
+//        else {  // 이름, 이메일 입력창 하나라도 조건 성립하지 않을 경우
+//            nextBtn.setEnabled(false);
+//            nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
+//        }
+        //////////////////////////////////////////////////////////
         
         
         
@@ -196,6 +217,10 @@ public class createId02Activity extends AppCompatActivity {
 
                         Intent intent =new Intent(getApplicationContext(), createId03Activity.class);
                         startActivity(intent);
+
+                        // 사용자 이름 메인화면으로 보내기
+                        Intent intentName = new Intent(getApplicationContext(), userPageActivity.class);
+                        intentName.putExtra("username", userName);
                     }
                 }
                 else {

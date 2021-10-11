@@ -6,12 +6,14 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +25,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class userPageActivity extends AppCompatActivity {
 
     TextView nameText, nameText2, lastAccessTime;
@@ -32,17 +39,24 @@ public class userPageActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private View drawerView;
     private RecyclerView recyclerview;
+    Button checkButton;
+
+    private Retrofit retrofit;
+    private final String BASEURL = "http://34.204.61.107";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_page);
 
-        SharedPreferences pref = getSharedPreferences("User1", 0);
-        String userName = pref.getString("userName", "");
+//        SharedPreferences pref = getSharedPreferences("User1", 0);
+//        String userName = pref.getString("userName", "");
 
         nameText = (TextView) findViewById(R.id.text1);
-        nameText.setText("어서오세요.\n" + userName + "님 환영합니다.");
+//        nameText.setText("어서오세요.\n" + userName + "님 환영합니다.");
+        Intent intent = getIntent();
+//        nameText.setText("어서오세요.\n" + "가나다" + "님 환영합니다.");
+        nameText.setText("어서오세요.\n" + intent.getStringExtra("username") + "님 환영합니다.");
 
         SharedPreferences preferences = getSharedPreferences("Time", 0);
         String nowTime = preferences.getString("time", "");
@@ -61,7 +75,8 @@ public class userPageActivity extends AppCompatActivity {
         });
 
         nameText2 = (TextView) findViewById(R.id.nameText2);
-        nameText2.setText(userName + " 님");
+//        nameText2.setText(userName + " 님");
+        nameText2.setText(intent.getStringExtra("username") + " 님");
 
         lock_1 = (Button) findViewById(R.id.lock_1);
         lock_1.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +86,34 @@ public class userPageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+//        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+//        checkButton = (Button) findViewById(R.id.checkButton);
+//        checkButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                jsonPlaceHolderApi.checkUsername("ddoongi43").enqueue(new Callback<Post>() {
+//                    @Override
+//                    public void onResponse(Call<Post> call, Response<Post> response) {
+//                        Toast.makeText(getApplicationContext(), "username", Toast.LENGTH_SHORT).show();
+//                        if (response.isSuccessful() && response.body() != null) {
+//                            String username = response.body().getCLIENT_NAME();
+//                            Log.d("Asd", username);
+//                            System.out.print("adsadasdasdasdasdasdasdasdasdasdas"+username);
+//                            Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+//                            intent.putExtra("username", username);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<Post> call, Throwable t) {
+//                        Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
 
         // OTP 생성
 //        create_OTP = (Button) findViewById(R.id.create_OTP);

@@ -36,6 +36,7 @@ public class createId03Activity extends AppCompatActivity {
     TextView warningText1;
     EditText phoneText, certificationText;
     String CLIENT_NAME, CLIENT_PHONE, CLIENT_ID, CLIENT_PWD, CLIENT_EMAIL;
+//    Boolean resultA=true, resultB=true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class createId03Activity extends AppCompatActivity {
                     if(!isContainsSymbol(phoneText.getText().toString())){  //특수 문자가 아닐때 회색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
+//                            resultA = false;
                         }
                     }
                 }
@@ -70,11 +72,13 @@ public class createId03Activity extends AppCompatActivity {
                     if(!isContainsSymbol(phoneText.getText().toString())){  //특수 문자가 아닐때 검은색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+//                            resultA = true;
                         }
                     }
                     if(isContainsSymbol(phoneText.getText().toString())){  //특수 문자가 있을때 빨간색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+//                            resultA = false;
                         }
                     }
 
@@ -94,6 +98,7 @@ public class createId03Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText1.setVisibility(View.VISIBLE);
+//                        resultB = false;
                         nextBtn.setEnabled(false);
                         nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
                     }
@@ -102,6 +107,7 @@ public class createId03Activity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         phoneText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText1.setVisibility(View.INVISIBLE);
+//                        resultB = true;
                         nextBtn.setEnabled(true);
                         nextBtn.setBackgroundResource(R.drawable.solid_button);
                     }
@@ -113,6 +119,17 @@ public class createId03Activity extends AppCompatActivity {
 
             }
         });
+        ///////////////////////////////////////////////////////////////////////
+
+        /***next 버튼 활성화 처리***/
+//        if (resultA==true && resultB==true) {  // 핸드폰 번호 입력 조건 성립할 경우
+//            nextBtn.setEnabled(true);
+//            nextBtn.setBackgroundResource(R.drawable.solid_button);
+//        }
+//        else {  // 핸드폰 번호 입력 조건 성립하지 않을 경우
+//            nextBtn.setEnabled(false);
+//            nextBtn.setBackgroundResource(R.drawable.solid_button_gray);
+//        }
         ///////////////////////////////////////////////////////////////////////
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +171,7 @@ public class createId03Activity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다.",Toast.LENGTH_LONG).show();
                             Intent intent=new Intent(getApplicationContext(), signUpActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                         //else Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
                     }

@@ -55,20 +55,25 @@
         app:layout_constraintWidth_percent="0.06"
         app:srcCompat="@drawable/x" />
 
-    <TextView
-        android:id="@+id/textView16"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="테스트 입니다"
-        android:textColor="#191919"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.03"
-        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324"
-        app:layout_constraintWidth_percent="0.3" />
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintVertical_bias="1">
 
+        <TextView
+            android:id="@+id/termText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="테스트 입니다"
+            android:textColor="#191919"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

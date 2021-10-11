@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class terms1Activity extends AppCompatActivity {
+
     ImageButton backBtn;
     TextView termText;
 

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,10 +46,12 @@ public class signUpActivity extends AppCompatActivity {
     SharedPreferences pref_firstRun, pref;
     Dialog dialog;
     CheckBox checkBox1, checkBox2;
+    LinearLayout linearLayout;
     //private TextView nickName;
     //private ImageView profileImage;
 
     private Retrofit retrofit;
+;
     private final String BASEURL = "http://34.204.61.107";
     private EditText idEditText,pwEditText;
 
@@ -132,13 +135,22 @@ public class signUpActivity extends AppCompatActivity {
 //            }
 //        });
 
-        sign_up_text.setOnClickListener(new View.OnClickListener() {
+        linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(getApplicationContext(), createId01Activity.class);
                 startActivity(intent);
             }
         });
+
+//        sign_up_text.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent =new Intent(getApplicationContext(), createId01Activity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 //        loginBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -165,19 +177,76 @@ public class signUpActivity extends AppCompatActivity {
                     HashMap<String, String> input = new HashMap<>();
                     input.put("CLIENT_ID", inputID);
                     input.put("CLIENT_PWD", inputPassword);
+                    System.out.println(inputID);
 
+//                    jsonPlaceHolderApi.loginData(input).enqueue(new Callback<Post>() {
                     jsonPlaceHolderApi.loginData(input).enqueue(new Callback<Post>() {
                         @Override
                         public void onResponse(Call<Post> call, Response<Post> response) {
                             if(response.isSuccessful() && response.body() != null){
                                 Boolean Result = response.body().getResult();
-                                if(Result){
+
+                                if(Result){   // 아이디와 비번이 맞으면
                                     Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                                }else{
+//                                    String username = response.body().getCLIENT_NAME();
+//                                    System.out.println(username);
+//                                    Log.d("Asd", username);
+//                                    // 메인화면에 사용자 이름 띄우기 위해 로그인 하는 아이디를 서버로 보내 사용자 이름 받아오기
+//                                    jsonPlaceHolderApi.checkUsername(inputID).enqueue(new Callback<Post>() {
+//                                        @Override
+//                                        public void onResponse(Call<Post> call, Response<Post> response) {
+//                                            Toast.makeText(getApplicationContext(), "username", Toast.LENGTH_SHORT).show();
+//                                            if (response.isSuccessful() && response.body() != null) {
+//                                                String username = response.body().getCLIENT_NAME();
+//                                                Log.d("Asd", username);
+//                                                System.out.print("adsadasdasdasdasdasdasdasdasdasdas"+username);
+//                                                Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
+//                                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+//                                                intent.putExtra("username", username);
+//                                            }
+//                                        }
+//
+//                                        @Override
+//                                        public void onFailure(Call<Post> call, Throwable t) {
+//                                            Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
+
+                                    /////////////////로그인 수정 필요!!!/////////////////
+//                                    if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
+//                                        //System.out.println("AAA");
+//                                        Intent intent =new Intent(getApplicationContext(), pinCreateActivity.class); // PIN 설정 화면으로 이동
+//                                        startActivity(intent);
+//                                    } else {
+//                                        Intent intent =new Intent(getApplicationContext(), passVerificationActivity.class);  // 둘 다 등록되어 있다면 PIN 확인 화면으로 이동
+//                                        startActivity(intent);
+//                                    }
+                                }else{  // 아이디와 비번이 틀리면
                                     Toast.makeText(getApplicationContext(), "비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
                                     System.out.println("Result : " + Result);
                                 }
                             }
+
+//                             메인화면에 사용자 이름 띄우기 위해 로그인 하는 아이디를 서버로 보내 사용자 이름 받아오기
+//                                    jsonPlaceHolderApi.checkUsername(inputID).enqueue(new Callback<Post>() {
+//                                        @Override
+//                                        public void onResponse(Call<Post> call, Response<Post> response) {
+//                                            Toast.makeText(getApplicationContext(), "username", Toast.LENGTH_SHORT).show();
+//                                            if (response.isSuccessful() && response.body() != null) {
+//                                                String username = response.body().getCLIENT_NAME();
+//                                                Log.d("Asd", username);
+//                                                System.out.print("adsadasdasdasdasdasdasdasdasdasdas"+username);
+//                                                Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
+//                                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+//                                                intent.putExtra("username", username);
+//                                            }
+//                                        }
+//
+//                                        @Override
+//                                        public void onFailure(Call<Post> call, Throwable t) {
+//                                            Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
 
 //                        Post result = response.body();
 //                        Toast.makeText(signUpActivity.this, "아이디 : " + result.getCLIENT_ID() + "비밀번호 : " + result.getCLIENT_PWD(), Toast.LENGTH_SHORT).show();
@@ -199,6 +268,30 @@ public class signUpActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("time", getTime);
                     editor.apply();
+
+
+
+
+                    // 메인화면에 사용자 이름 띄우기 위해 로그인 하는 아이디를 서버로 보내 사용자 이름 받아오기
+//                    jsonPlaceHolderApi.checkUsername(inputID).enqueue(new Callback<Post>() {
+//                        @Override
+//                        public void onResponse(Call<Post> call, Response<Post> response) {
+//                            if (response.isSuccessful() && response.body() != null) {
+//                                String username = response.body().getCLIENT_NAME();
+//                                Intent intent = new Intent(getApplicationContext(), userPageActivity.class);
+//                                intent.putExtra("username", username);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<Post> call, Throwable t) {
+//                            Toast.makeText(getApplicationContext(), "이름받아오기 실패", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+
+
+
+
 
                     if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
                         //System.out.println("AAA");

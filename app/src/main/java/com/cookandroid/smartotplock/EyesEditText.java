@@ -52,7 +52,7 @@ public class EyesEditText extends AppCompatEditText implements TextWatcher, View
         Drawable tempDrawable = ContextCompat.getDrawable(getContext(), R.drawable.eye_size_edit);
         clearDrawable = DrawableCompat.wrap(tempDrawable);
         //DrawableCompat.setTintList(clearDrawable,getHintTextColors());
-        clearDrawable.setBounds(0, 0, clearDrawable.getIntrinsicWidth(), clearDrawable.getIntrinsicHeight());
+        clearDrawable.setBounds(-20, 0, clearDrawable.getIntrinsicWidth(), clearDrawable.getIntrinsicHeight());
 
         setClearIconVisible(false);
         super.setOnTouchListener(this);
@@ -64,7 +64,7 @@ public class EyesEditText extends AppCompatEditText implements TextWatcher, View
         Drawable tempDrawable = ContextCompat.getDrawable(getContext(), R.drawable.eye_off_size_edit);
         clearDrawable = DrawableCompat.wrap(tempDrawable);
         //DrawableCompat.setTintList(clearDrawable,getHintTextColors());
-        clearDrawable.setBounds(0, 0, clearDrawable.getIntrinsicWidth(), clearDrawable.getIntrinsicHeight());
+        clearDrawable.setBounds(-20, 0, clearDrawable.getIntrinsicWidth(), clearDrawable.getIntrinsicHeight());
 
         setClearIconVisible(false);
         super.setOnTouchListener(this);
