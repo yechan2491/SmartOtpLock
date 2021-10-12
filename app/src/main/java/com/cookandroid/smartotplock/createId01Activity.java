@@ -72,6 +72,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if(!isContainsSymbol(idText.getText().toString())){  //특수 문자가 아닐때 회색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
+                            warningText1.setVisibility(View.INVISIBLE);
                         }
                     }
                 }
@@ -86,11 +87,10 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                             idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         }
                     }
-
-
                 }
             }
         });
+
         idText.addTextChangedListener(new TextWatcher() {
             @Override  //입력하기 전에 호출되는 API  //무언가 바뀐시점전에
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -103,12 +103,28 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
                         warningText1.setVisibility(View.VISIBLE);
+                    }
+                }
+                else{  // 특수문자가 아닐때 검정색
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
+                        warningText1.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+
+            @Override  //입력이 끝났을 때 //무언가 바뀐 이후
+            public void afterTextChanged(Editable editable) {
+                if(isContainsSymbol(idText.getText().toString())){ //특수 문자가 있을때 빨간색
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
+                        warningText1.setVisibility(View.VISIBLE);
                         idCheck.setBackgroundResource(R.drawable.solid_button_gray);
                         idCheck.setEnabled(false);
                     }
                 }
                 else{  // 특수문자가 아닐때 검정색
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) && (idText.getText().toString().length() > 0)) {
                         idText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
                         warningText1.setVisibility(View.INVISIBLE);
                         idCheck.setBackgroundResource(R.drawable.solid_button);
@@ -116,12 +132,8 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     }
                 }
             }
-
-            @Override  //입력이 끝났을 때 //무언가 바뀐 이후
-            public void afterTextChanged(Editable editable) {
-
-            }
         });
+
 
         // 아이디 중복 확인
         idCheck.setOnClickListener(new View.OnClickListener() {
@@ -137,9 +149,11 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                             if(isDuplicate){ //중복
                                 Toast.makeText(getApplicationContext(), "중복된 아이디입니다.", Toast.LENGTH_SHORT).show();
                                 nextBtn_IDcheck = false;
+                                resultA = false;
                             }else{
                                 Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
                                 nextBtn_IDcheck = true;
+                                resultA = true;
 //                                System.out.println("nextBtn_IDcheck : " + nextBtn_IDcheck);
                             }
                         }
@@ -163,7 +177,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if(!isContainsSymbol2(passText.getText().toString())){  //정상적인 조합일때 회색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             passText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
-                            resultA = false;
+//                            resultA = false;
                         }
                     }
                 }
@@ -171,13 +185,13 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if(!isContainsSymbol2(passText.getText().toString())){  //정상적인 조합일때 검은색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             passText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
-                            resultA = true;
+//                            resultA = true;
                         }
                     }
                     if(isContainsSymbol2(passText.getText().toString())){  //정상적인 조합이 아닐때 빨간색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             passText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
-                            resultA = false;
+//                            resultA = false;
                         }
                     }
                 }
@@ -223,7 +237,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if(!isContainsSymbol3(passCheckText.getText().toString())){ //비밀번호 일치인상태 회색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d4d4d8")));
-                            resultC = false;
+//                            resultC = false;
                         }
                     }
                 }
@@ -231,13 +245,13 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                     if(!isContainsSymbol3(passCheckText.getText().toString())){  //비밀번호 일치인상태 검은색
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#191919")));
-                            resultC = true;
+//                            resultC = true;
                         }
                     }
                     if(isContainsSymbol3(passCheckText.getText().toString())){  //비밀번호 불일치시
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             passCheckText.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#ff3120")));
-                            resultC = false;
+//                            resultC = false;
                         }
                     }
 
@@ -282,7 +296,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
         //////////////////////////////////////////////////////////
 
         /***next 버튼 활성화 처리***/
-        if ((resultA && resultB && resultC && resultD && nextBtn_IDcheck)==true) {  //비밀번호 입력, 재입력 모두 조건 성립할 경우
+        if ((resultA && resultB && resultD)) {  //비밀번호 입력, 재입력 모두 조건 성립할 경우
             nextBtn.setEnabled(true);
             nextBtn.setBackgroundResource(R.drawable.solid_button);
         }

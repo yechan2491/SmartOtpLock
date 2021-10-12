@@ -171,7 +171,7 @@ public class createId03Activity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다.",Toast.LENGTH_LONG).show();
                             Intent intent=new Intent(getApplicationContext(), signUpActivity.class);
                             startActivity(intent);
-                            finish();
+//                            finish();
                         }
                         //else Toast.makeText(getApplicationContext(),"성공",Toast.LENGTH_LONG).show();
                     }
