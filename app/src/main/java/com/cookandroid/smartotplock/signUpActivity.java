@@ -204,7 +204,7 @@ public class signUpActivity extends AppCompatActivity {
 
 
                                 if(Result){   // 아이디와 비번이 맞으면
-                                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
 
                                     if(pref.contains("pin")==false || pref.contains("password")==false) {  // PIN과 패턴이 등록되어 있지 않다면
                                         //System.out.println("AAA");
@@ -240,7 +240,7 @@ public class signUpActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<Post> call, Throwable t) {
-                            Toast.makeText(signUpActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(signUpActivity.this, "로그인 실패 : 서버 연결 오류", Toast.LENGTH_SHORT).show();
                             Log.d("로그인 실패 : ", t.getMessage());
                         }
                     });

@@ -91,13 +91,13 @@ public class otpCheckActivity extends AppCompatActivity {
                     public void onResponse(Call<Post> call, Response<Post> response) {
                         if(response.isSuccessful()) {
                             Post postResponse = response.body();
-                            Toast.makeText(getApplicationContext(),"OTP가 성공적으로 등록되었습니다.",Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(),"OTP가 성공적으로 등록되었습니다.",Toast.LENGTH_LONG).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Post> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),"OTP 등록에 실패하였습니다.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"OTP 등록 실패 : 서버 연결 오류",Toast.LENGTH_LONG).show();
                         Log.d("오류 : ", t.getMessage());
                     }
                 });
