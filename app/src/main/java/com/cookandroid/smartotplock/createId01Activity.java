@@ -1,5 +1,6 @@
 package com.cookandroid.smartotplock;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -37,6 +38,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
 
     private String passArray=""; // 패스워드 저장을 위한 배열
 
+    public static Activity Create_01;
 
     @Override //aa
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class createId01Activity extends AppCompatActivity { // commit first test
         warningText1=(TextView)findViewById(R.id.warningText1);
         warningText2=(TextView)findViewById(R.id.warningText2);
         warningText3=(TextView)findViewById(R.id.warningText3);
+
+        Create_01 = createId01Activity.this;
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASEURL)
@@ -313,6 +317,7 @@ public class createId01Activity extends AppCompatActivity { // commit first test
                 finish();
             }
         });
+
         //////////////////////////////
 
         /***다음 버튼 이벤트***/

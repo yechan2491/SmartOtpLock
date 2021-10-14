@@ -1,5 +1,6 @@
 package com.cookandroid.smartotplock;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -36,6 +37,8 @@ public class createId03Activity extends AppCompatActivity {
     TextView warningText1;
     EditText phoneText, certificationText;
     String CLIENT_NAME, CLIENT_PHONE, CLIENT_ID, CLIENT_PWD, CLIENT_EMAIL;
+
+    public static Activity Create_03;
 //    Boolean resultA=true, resultB=true;
 
     @Override
@@ -55,6 +58,8 @@ public class createId03Activity extends AppCompatActivity {
         warningText1=(TextView)findViewById(R.id.warningText1);
         phoneText=(EditText)findViewById(R.id.phoneText);
         certificationText =(EditText)findViewById(R.id.certificationText);
+
+        Create_03 = createId03Activity.this;
 
         /***phoneText 이벤트처리***/
         phoneText.setOnFocusChangeListener(new View.OnFocusChangeListener() {

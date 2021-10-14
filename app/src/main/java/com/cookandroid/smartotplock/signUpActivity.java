@@ -1,5 +1,6 @@
 package com.cookandroid.smartotplock;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,6 +48,7 @@ public class signUpActivity extends AppCompatActivity {
     Dialog dialog;
     CheckBox checkBox1, checkBox2;
     LinearLayout linearLayout;
+    private long backKeyPressedTime = 0;
     //private TextView nickName;
     //private ImageView profileImage;
 
@@ -332,6 +334,7 @@ public class signUpActivity extends AppCompatActivity {
 //                        .show();
 //            }
 //        });
+
     }
 
     // 네트워크 오류 팝업창
@@ -356,7 +359,50 @@ public class signUpActivity extends AppCompatActivity {
                 .build();
     }
 
-//    private void updateKakaoLoginUi(){
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        if (System.currentTimeMillis() > backKeyPressedTime + 2500) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(signUpActivity.this, "뒤로 가기 버튼을 한 번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+//            AppFinish();
+            // 앱 완전 종료 : 태스크 리스트에서도 완전히 지우는 방법
+            moveTaskToBack(true);
+            finishAndRemoveTask();
+            android.os.Process.killProcess(android.os.Process.myPid());
+
+            // 태스크 리스트에서 앱이 남는 방법
+//            moveTaskToBack(true);
+//            finish();
+//            android.os.Process.killProcess(android.os.Process.myPid());
+
+        }
+
+//        if (System.currentTimeMillis() <= backKeyPressedTime + 2500) {
+//            finish();
+//        }
+    }
+
+    private Activity activity;
+
+    public void AppFinish() {
+        createId02Activity Create_01 = (createId02Activity)createId01Activity.Create_01;
+        createId02Activity Create_02 = (createId02Activity)createId02Activity.Create_02;
+        createId02Activity Create_03 = (createId02Activity)createId03Activity.Create_03;
+
+        Create_01.finish();
+        Create_02.finish();
+        Create_03.finish();
+
+//        finish();
+        System.exit(0);
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    //    private void updateKakaoLoginUi(){
 //        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
 //            @Override
 //            public Unit invoke(User user, Throwable throwable) {
